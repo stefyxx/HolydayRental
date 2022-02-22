@@ -51,5 +51,21 @@ namespace HolidayRental.DAL.Handlers
                 DateCreation = (DateTime)record[nameof(BienEchange.DateCreation)]
             };
         }
+
+        public static AvisMembreBien toAvis(IDataRecord record)
+        {
+            if (record is null) return null;
+            return new AvisMembreBien
+            {
+                idAvis = (int)record[nameof(AvisMembreBien.idAvis)],
+                note = (int)record[nameof(AvisMembreBien.note)],
+                message = (string)record[nameof(AvisMembreBien.message)],
+                idMembre = (int)record[nameof(AvisMembreBien.idMembre)],
+                idBien = (int)record[nameof(AvisMembreBien.idBien)],
+                DateAvis = (DateTime)record[nameof(AvisMembreBien.DateAvis)],
+                Approuve = (bool)record[nameof(AvisMembreBien.Approuve)]
+
+            };
+        }
     }
 }

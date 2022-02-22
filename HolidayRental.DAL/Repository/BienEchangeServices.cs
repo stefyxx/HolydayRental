@@ -51,7 +51,7 @@ namespace HolidayRental.DAL.Repository
             {
                 using (SqlCommand cmd = c.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT [titre], [DescCourte], [DescLong], [NombrePerson], [Pays], [Ville], [Rue], [Numero], [CodePostal], [Photo], [AssuranceObligatoire], [isEnabled],[DisabledDate], [Latitude], [Longitude], [idMembre], [DateCreation] FROM [BienEchange]";
+                    cmd.CommandText = "SELECT [idBien], [titre], [DescCourte], [DescLong], [NombrePerson], [Pays], [Ville], [Rue], [Numero], [CodePostal], [Photo], [AssuranceObligatoire], [isEnabled],[DisabledDate], [Latitude], [Longitude], [idMembre], [DateCreation] FROM [BienEchange]";
 
                     c.Open();
 

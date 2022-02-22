@@ -10,7 +10,7 @@ namespace HolidayRental.DAL.Models
 
         //da 0 a 10 : MVC
         public int note { get; set; }
-        public string messsage { get; set; }
+        public string message { get; set; }
         public int idMembre { get; set; }
         public int idBien { get; set; }
         public DateTime DateAvis { get; set; }
