@@ -1,0 +1,280 @@
+﻿@{
+    ViewData["Title"] = SessionHelper.GetObjectFromJson<string>(Context.Session, "Titre");
+}
+
+<div class="">
+    
+
+            <div id="slider" class="sl-slider-wrapper">
+
+        <div class="sl-slider">
+        
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-1"></div>
+              <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
+              <blockquote>              
+              <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+              <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
+              <cite>Echanger</cite>
+              </blockquote>
+            </div>
+          </div>
+          
+          <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-2"></div>
+              <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
+              <blockquote>              
+              <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+              <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
+              <cite>Echanger</cite>
+              </blockquote>
+            </div>
+          </div>
+          
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-3"></div>
+              <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
+              <blockquote>              
+              <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+              <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
+              <cite>Echanger</cite>
+              </blockquote>
+            </div>
+          </div>
+          
+          <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-4"></div>
+              <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
+              <blockquote>              
+              <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+              <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
+              <cite>Echanger</cite>
+              </blockquote>
+            </div>
+          </div>
+          
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-5"></div>
+              <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
+              <blockquote>              
+              <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+              <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
+              <cite>Echanger</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div><!-- /sl-slider -->
+
+
+
+        <nav id="nav-dots" class="nav-dots">
+          <span class="nav-dot-current"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </nav>
+
+      </div><!-- /slider-wrapper -->
+</div>
+
+
+
+<div class="banner-search">
+  <div class="container"> 
+    <!-- banner -->
+    <h3>Rechercher un bien a échanger</h3>
+    <div class="searchbar">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <input type="text" class="form-control" placeholder="mots clés">
+          <div class="row">
+            <div class="col-lg-3 col-sm-3 ">
+              <select class="form-control">
+                <option>Maison</option>
+                <option>Appartement</option>
+                <option>Studio</option>
+              </select>
+            </div>
+            
+              <div class="col-lg-3 col-sm-4">
+              <button class="btn btn-success"  onclick="window.location.href='/Search/Index'">Rechercher</button>
+              </div>
+          </div>
+          
+          
+        </div>
+        @{
+            if(SessionHelper.GetObjectFromJson<bool>(Context.Session, "IsLogged")!=true)
+            {
+             @:<div class="col-lg-5 col-lg-offset-1 col-sm-6 ">
+             @:   <p>Rejoignez-nous et profitez des biens partout dans le monde.</p>
+             @:   <button class="btn btn-info"   data-toggle="modal" data-target="#loginpop">Se Connecter</button>        </div>
+             @:</div>
+            }
+        }
+       
+    </div>
+  </div>
+</div>
+<!-- banner -->
+<div class="container">
+  <div class="properties-listing spacer"> <a href="#" class="pull-right viewall">Voir tout</a>
+    <h2>Les meilleurs échanges</h2>
+    <div id="owl-example" class="owl-carousel">
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties"/>
+          <div class="status sold">Pépite</div>
+        </div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties"/>
+          <div class="status new">New</div>
+        </div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties"/>
+          <div class="status sold">Pépite</div>
+        </div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties"/>
+          <div class="status sold">Sold</div>
+        </div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties"/>
+          <div class="status new">New</div>
+        </div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties"/></div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25"/></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25"/></span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties"/></div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      <div class="properties">
+        <div class="image-holder"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
+        <h4><a href="#">Royal Inn</a></h4>
+        <p class="price">Caution : €25</p>
+        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
+        <a class="btn btn-primary" href="#">Détails...</a>
+      </div>
+      
+    </div>
+  </div>
+  <div class="spacer">
+    <div class="row">
+      <div class="col-lg-6 col-sm-9 recent-view">
+        <h3>A propos de nous</h3>
+        <p>Projet développé durant l'épreuve MQ02/Q47<br><a href="#">En savoir plus...</a></p>
+      
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-sm-3 recommended">
+        <h3>Propriétés phares</h3>
+        <div id="myCarousel" class="carousel slide">
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+          </ol>
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="row">
+                <div class="col-lg-4"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties"/></div>
+                <div class="col-lg-8">
+                  <h5><a href="#">Integer sed porta quam</a></h5>
+                  <p class="price">€25</p>
+                  <a href="#" class="more">Plus d'infos...</a> </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-lg-4"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties"/></div>
+                <div class="col-lg-8">
+                  <h5><a href="#">Integer sed porta quam</a></h5>
+                  <p class="price">€25</p>
+                  <a href="#" class="more">Plus d'infos...</a> </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-lg-4"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
+                <div class="col-lg-8">
+                  <h5><a href="#">Integer sed porta quam</a></h5>
+                  <p class="price">€25</p>
+                  <a href="#" class="more">Plus d'infos...</a> </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-lg-4"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
+                <div class="col-lg-8">
+                  <h5><a href="#">Integer sed porta quam</a></h5>
+                  <p class="price">€25</p>
+                  <a href="#" class="more">Plus d'infos...</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

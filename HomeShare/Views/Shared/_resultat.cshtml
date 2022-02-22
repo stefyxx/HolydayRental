@@ -1,0 +1,112 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="inside-banner">
+    <div class="container">
+        <span class="pull-right"><a href="/Home/Index">Home</a> / Recherche</span>
+        <h2>Résultat de la recherche</h2>
+    </div>
+</div>
+<!-- banner -->
+
+
+<div class="container">
+    <div class="spacer agents">
+    <div class="searchbar">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <input type="text" class="form-control" placeholder="mots clés">
+          <div class="row">
+            <div class="col-lg-3 col-sm-3 ">
+              <select class="form-control">
+                <option>Maison</option>
+                <option>Appartement</option>
+                <option>Studio</option>
+              </select>
+            </div>
+            
+              <div class="col-lg-3 col-sm-4">
+              <button class="btn btn-success"  onclick="window.location.href='/Search/Index'">Rechercher</button>
+              </div>
+          </div>
+          
+          
+        </div>
+       </div>  
+      </div>
+      </div>
+    <div class="spacer Propriete">
+
+        <div class="row">
+            <div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3 "><a href="#"><img src="/images/properties/1.jpg" class="img-responsive" alt="agent name"></a></div>
+                    <div class="col-lg-4 col-sm-4 ">
+                        <h4>Royal Inn</h4>
+                        <p>Une grande piscine et un magnifique jardin.</p>
+                        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
+
+                    </div>
+                    <div class="col-lg-3 col-sm-3 ">
+                        <span class="glyphicon glyphicon-map-marker"></span> 1200 Bruxelles <img src="/images/icones/belgique.png" width="30" /><br>
+                        <span class="glyphicon glyphicon-earphone"></span> (9009) 899 889
+                        <a class="btn btn-primary" href="#">Détails</a>
+                    </div>
+                    <div class="col-lg-2 col-sm-2 ">
+                        <div id="map" class="minimap"></div>
+                        <script>
+                            var map = L.map('map').setView([50.499527, 4.475402500000001], 13);
+                            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', 
+                            {
+                                attribution: 'HoliDayRental &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                                maxZoom: 18,
+                                id: 'mapbox/streets-v11',
+                                tileSize: 512,
+                                zoomOffset: -1,
+                                accessToken: 'pk.eyJ1IjoibWlrZXBlcnNvbjI1MSIsImEiOiJjanlwc3cweHkxYjNsM21xZjl2Y2d2bXRvIn0.edBkKpFNjEvTZ2MbijICKA'
+                            }).addTo(map);
+                        </script>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3 "><a href="#"><img src="/images/properties/3.jpg" class="img-responsive" alt="agent name"></a></div>
+                    <div class="col-lg-4 col-sm-4 ">
+                        <h4>Smart House</h4>
+                        <p>Une grande maison avec vue sur BigBen.</p>
+                        <div class="listing-detail"> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> </div>
+
+                    </div>
+                    <div class="col-lg-3 col-sm-3 ">
+                        <span class="glyphicon glyphicon-map-marker"></span> EC2P 2E Londres <img src="/images/icones/Angleterre.png" width="30" /><br>
+                        <span class="glyphicon glyphicon-earphone"></span> (9009) 899 889
+                        <a class="btn btn-primary" href="#">Détails</a>
+                    </div>
+                    <div class="col-lg-2 col-sm-2 ">
+                        <div id="map2" class="minimap"></div>
+                        <script>
+                            var map2 = L.map('map2').setView([51.505, -0.09], 13);
+                            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', 
+                            {
+                                attribution: 'HoliDayRental &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                                maxZoom: 18,
+                                id: 'mapbox/streets-v11',
+                                tileSize: 512,
+                                zoomOffset: -1,
+                                accessToken: 'pk.eyJ1IjoibWlrZXBlcnNvbjI1MSIsImEiOiJjanlwc3cweHkxYjNsM21xZjl2Y2d2bXRvIn0.edBkKpFNjEvTZ2MbijICKA'
+                            }).addTo(map2);
+                        </script>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

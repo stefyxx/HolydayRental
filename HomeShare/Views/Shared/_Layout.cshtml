@@ -1,0 +1,160 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HoliDayRental MQ02/Q47 - @ViewData["Title"]</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/script.js"></script>
+
+    <!--Map-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+    <!-- Owl stylesheet -->
+    <link rel="stylesheet" href="/lib/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/lib/owl-carousel/owl.theme.css">
+    <script src="/lib/owl-carousel/owl.carousel.js"></script>
+    <!-- Owl stylesheet -->
+    <!-- slitslider -->
+    <link rel="stylesheet" type="text/css" href="/lib/slitslider/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/slitslider/css/custom.css" />
+    <script type="text/javascript" src="/lib/slitslider/js/modernizr.custom.79639.js"></script>
+    <script type="text/javascript" src="/lib/slitslider/js/jquery.ba-cond.min.js"></script>
+    <script type="text/javascript" src="/lib/slitslider/js/jquery.slitslider.js"></script>
+    <!-- slitslider -->
+    <!-- Map -->
+        <!--- Map js -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+</head>
+
+<body>
+
+
+    <!-- Header Starts -->
+    <div class="navbar-wrapper">
+
+        <div class="navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+
+                <!-- Nav Starts -->
+                <div class="navbar-collapse  collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            @Html.ActionLink("Home","Index","Home");
+
+                        </li> 
+                        <li><a href="#">A propos de nous</a></li>
+                        <li><a href="#">Les propriétaires</a></li>
+                        <li><a href="#">Les biens échangés</a></li>
+                        <li><a href="#">Contactez-nous</a></li>
+                    </ul>
+                </div>
+                <!-- #Nav Ends -->
+
+            </div>
+        </div>
+
+    </div>
+    <!-- #Header Starts -->
+
+
+
+
+
+    <div class="container">
+
+        <!-- Header Starts -->
+        <div class="header">
+            <a href="index.php"><img src="/images/logo.png" alt="Realestate"></a>
+
+            <ul class="pull-right">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Rechercher</a></li>
+                <li><a href="#">Visiter</a></li>
+                <li><a href="#">Echanger</a></li>
+                <li><a href="#">S'enregistrer</a></li>
+            </ul>
+        </div>
+        <!-- #Header Starts -->
+    </div>
+    @RenderBody()
+
+    <div class="footer">
+
+        <div class="container">
+
+
+
+            <div class="row">
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Information</h4>
+                    <ul class="row">
+                        <li class="col-lg-12 col-sm-12 col-xs-3"><a href="#">Rechercher</a></li>
+                        <li class="col-lg-12 col-sm-12 col-xs-3"><a href="#">Visiter</a></li>
+                        <li class="col-lg-12 col-sm-12 col-xs-3"><a href="#">Echanger</a></li>
+                        <li class="col-lg-12 col-sm-12 col-xs-3"><a href="#">S'enregistrer</a></li>
+                    </ul>
+                </div>
+
+
+
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Follow us</h4>
+                    <a href="https://www.facebook.com/interface3/"><img src="/images/facebook.png" alt="facebook"></a>
+                    <a href="#"><img src="/images/twitter.png" alt="twitter"></a>
+                    <a href="https://www.linkedin.com/school/interface3/"><img src="/images/linkedin.png" alt="linkedin"></a>
+                    <a href="#"><img src="/images/instagram.png" alt="instagram"></a>
+                </div>
+
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Contact us</h4>
+                    <p>
+                        <b>HoliDayRental.</b><br>
+                        <span class="glyphicon glyphicon-map-marker"></span> Rue Gaucheret 88, 1030 Bruxelles <br>
+                        <span class="glyphicon glyphicon-envelope"></span> HoliDayRental@interface3.be<br>
+                        <span class="glyphicon glyphicon-earphone"></span> (+32) 02 219 15 10
+                    </p>
+                </div>
+            </div>
+            <p class="copyright">Copyright 2022. All rights reserved.	</p>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <partial name="_LoginModal" />
+
+
+</body>
+</html>
+
+
+
