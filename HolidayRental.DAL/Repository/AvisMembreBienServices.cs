@@ -120,5 +120,8 @@ namespace HolidayRental.DAL.Repository
                 }
             }
         }
+
+        //in services BienEchange ho il method ->5beniMeglioVotati
+
     }
 }

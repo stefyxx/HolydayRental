@@ -166,7 +166,7 @@ namespace HolidayRental.DAL.Repository
             }
         }
 
-        public IEnumerable<BienEchange> GetLibre(DateTime dateDebut, DateTime dateFin)
+        public IEnumerable<BienEchange> GetLibreSP(DateTime dateDebut, DateTime dateFin)
         {
             using (SqlConnection c = new SqlConnection(_connString))
             {
@@ -188,7 +188,7 @@ namespace HolidayRental.DAL.Repository
             }
         }
 
-        public IEnumerable<BienEchange> GetAllBiensParMembre(int idMembro)
+        public IEnumerable<BienEchange> GetAllBiensParMembreSP(int idMembro)
         {
             using (SqlConnection c = new SqlConnection(_connString))
             {
@@ -208,5 +208,56 @@ namespace HolidayRental.DAL.Repository
                 }
             }
         }
+
+        public IEnumerable<BienEchange> GetMeilleurBienV()
+        {
+            using (SqlConnection c = new SqlConnection(_connString))
+            {
+                using (SqlCommand cmd = c.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT [idBien], [titre], [DescCourte], [DescLong], [NombrePerson], [Pays], [Ville], [Rue], [Numero], [CodePostal], [Photo], [AssuranceObligatoire], [isEnabled],[DisabledDate], [Latitude], [Longitude], [idMembre], [DateCreation] FROM [dbo].[Vue_MeilleursAvis]";
+
+                    c.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read()) yield return Mapper.ToBienEchange(reader);
+                }
+            }
+        }
+
+        public IEnumerable<BienEchange> GetDernier5BienV()
+        {
+            using (SqlConnection c = new SqlConnection(_connString))
+            {
+                using (SqlCommand cmd = c.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT [idBien], [titre], [DescCourte], [DescLong], [NombrePerson], [Pays], [Ville], [Rue], [Numero], [CodePostal], [Photo], [AssuranceObligatoire], [isEnabled],[DisabledDate], [Latitude], [Longitude], [idMembre], [DateCreation] FROM [dbo].[Vue_CinqDernierBiens]";
+
+                    c.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read()) yield return Mapper.ToBienEchange(reader);
+                }
+            }
+        }
+
+        //ho creato una View [dbo].[Vue_BiensParPaysNAME]-> ma per usarla devo creare un Type ad OK x! invece di idPays ho NomePays
+        public IEnumerable<BienEchange> GetBienParPaysV()
+        {
+            using (SqlConnection c = new SqlConnection(_connString))
+            {
+                using (SqlCommand cmd = c.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT [idBien], [titre], [DescCourte], [DescLong], [NombrePerson], [Pays], [Ville], [Rue], [Numero], [CodePostal], [Photo], [AssuranceObligatoire], [isEnabled],[DisabledDate], [Latitude], [Longitude], [idMembre], [DateCreation] FROM [dbo].[Vue_BiensParPays]";
+
+                    c.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read()) yield return Mapper.ToBienEchange(reader);
+                }
+            }
+        }
+
+        //per usare sp_recupToutesInfosBien DEVO creare un'entity ad OK
     }
 }
