@@ -6,7 +6,6 @@ namespace HolidayRental.BLL.Models
 {
     public class BienEchange
     {
-        //BNN: in DB-> quando 'cancello' il bene, é solo reso 'isEnable4->false
         public int idBien { get; set; }
         public string titre { get; set; }
         public string DescCourte { get; set; }

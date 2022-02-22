@@ -37,5 +37,56 @@ namespace HolidayRental.BLL.Handlers
                 Password = m.Password
             };
         }
+
+        public static BLL.Models.BienEchange ToBLL(this DAL.Models.BienEchange m)
+        {
+            if (m is null) return null;
+            return new Models.BienEchange
+            {
+                idBien = m.idBien,
+                titre = m.titre,
+                DescCourte = m.DescCourte,
+                DescLong = m.DescLong,
+                NombrePerson = m.NombrePerson,
+                Pays = m.Pays,
+                Ville = m.Ville,
+                Rue = m.Rue,
+                Numero = m.Numero,
+                CodePostal = m.CodePostal,
+                Photo = m.Photo,
+                AssuranceObligatoire = m.AssuranceObligatoire,
+                isEnabled = m.isEnabled,
+                DisabledDate = (m.DisabledDate is null)?null:(DateTime?)m.DisabledDate,
+                Latitude = m.Latitude,
+                Longitude =m.Longitude,
+                idMembre = m.idMembre,
+                DateCreation =m.DateCreation
+            };
+        }
+        public static DAL.Models.BienEchange ToDAL(this BLL.Models.BienEchange m)
+        {
+            if (m is null) return null;
+            return new DAL.Models.BienEchange
+            {
+                idBien = m.idBien,
+                titre = m.titre,
+                DescCourte = m.DescCourte,
+                DescLong = m.DescLong,
+                NombrePerson = m.NombrePerson,
+                Pays = m.Pays,
+                Ville = m.Ville,
+                Rue = m.Rue,
+                Numero = m.Numero,
+                CodePostal = m.CodePostal,
+                Photo = m.Photo,
+                AssuranceObligatoire = m.AssuranceObligatoire,
+                isEnabled = m.isEnabled,
+                DisabledDate = (m.DisabledDate is null) ? null : (DateTime?)m.DisabledDate,
+                Latitude = m.Latitude,
+                Longitude = m.Longitude,
+                idMembre = m.idMembre,
+                DateCreation = m.DateCreation
+            };
+        }
     }
 }

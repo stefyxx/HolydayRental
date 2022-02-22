@@ -16,7 +16,8 @@ namespace HolidayRental.DAL.Repository
             {
                 using (SqlCommand cmd = c.CreateCommand())
                 {
-                    cmd.CommandText = "DELETE FROM [BienEchange] WHERE [idBien] = @id";
+                    //cmd.CommandText = "DELETE FROM [BienEchange] WHERE [idBien] = @id";
+                    cmd.CommandText = "UPDATE [BienEchange] SET [isEnabled] = 0 WHERE[idBien] = @id";
                     SqlParameter p_id = new SqlParameter("id", id);
                     cmd.Parameters.Add(p_id);
                     c.Open();
@@ -51,7 +52,7 @@ namespace HolidayRental.DAL.Repository
             {
                 using (SqlCommand cmd = c.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT [idBien], [titre], [DescCourte], [DescLong], [NombrePerson], [Pays], [Ville], [Rue], [Numero], [CodePostal], [Photo], [AssuranceObligatoire], [isEnabled],[DisabledDate], [Latitude], [Longitude], [idMembre], [DateCreation] FROM [BienEchange]";
+                    cmd.CommandText = "SELECT [idBien], [titre], [DescCourte], [DescLong], [NombrePerson], [Pays], [Ville], [Rue], [Numero], [CodePostal], [Photo], [AssuranceObligatoire], [isEnabled],[DisabledDate], [Latitude], [Longitude], [idMembre], [DateCreation] FROM [BienEchange] WHERE [isEnabled]= 1";
 
                     c.Open();
 
