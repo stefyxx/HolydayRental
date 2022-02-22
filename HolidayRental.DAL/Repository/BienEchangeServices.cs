@@ -165,5 +165,48 @@ namespace HolidayRental.DAL.Repository
                 }
             }
         }
+
+        public IEnumerable<BienEchange> GetLibre(DateTime dateDebut, DateTime dateFin)
+        {
+            using (SqlConnection c = new SqlConnection(_connString))
+            {
+                using (SqlCommand cmd = c.CreateCommand())
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_RecupBienDispo";
+
+                    SqlParameter p_date1 = new SqlParameter("DateDeb", dateDebut);
+                    SqlParameter p_date2 = new SqlParameter("DateFin", dateFin);
+                    cmd.Parameters.Add(p_date1);
+                    cmd.Parameters.Add(p_date1);
+
+                    c.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read()) yield return Mapper.ToBienEchange(reader);
+                }
+            }
+        }
+
+        public IEnumerable<BienEchange> GetAllBiensParMembre(int idMembro)
+        {
+            using (SqlConnection c = new SqlConnection(_connString))
+            {
+                using (SqlCommand cmd = c.CreateCommand())
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_RecupBienMembre";
+
+                    SqlParameter p_id = new SqlParameter("idMembre", idMembro);
+
+                    cmd.Parameters.Add(p_id);
+
+                    c.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read()) yield return Mapper.ToBienEchange(reader);
+                }
+            }
+        }
     }
 }

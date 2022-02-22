@@ -10,8 +10,8 @@ namespace HolidayRental.DAL.Models
 
         public int idMembre { get; set; }
         public int idBien { get; set; }
-        public DateTime DateDebEchenge { get; set; }
-        public DateTime DateFinEchenge { get; set; }
+        public DateTime DateDebEchenge { get; set; } //inizio affitto
+        public DateTime DateFinEchenge { get; set; } // fine affitto
 
         //NBB: PUO' ESSRE NULL
         // qui' memorizzo se al momento dello scambio aveva o no l'assurance
