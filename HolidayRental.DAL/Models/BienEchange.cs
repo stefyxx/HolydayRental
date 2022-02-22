@@ -23,13 +23,13 @@ namespace HolidayRental.DAL.Models
 
         public string Photo { get; set; }
         public bool AssuranceObligatoire { get; set; }
-        public bool isEnable { get; set; }
+        public bool isEnabled { get; set; }
 
         public DateTime? DisabledDate { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
 
-        public int idMenbre { get; set; }
+        public int idMembre { get; set; }
         public DateTime DateCreation { get; set; }
 
     }

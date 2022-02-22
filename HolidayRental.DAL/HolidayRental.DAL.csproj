@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\" />
-    <Folder Include="Repository\" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="System.Data.SqlClient.sni-x64" Version="4.0.0-beta-23225" />
+    <PackageReference Include="System.Data.SqlClient.sni-x86" Version="4.0.0-beta-23225" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HolidayRental.Common
 {
-    public interface IAllRepository<TEntity>:IGetRepository<TEntity>, IRepository<TEntity>
+    public interface IAllRepositoryBASE<TEntity>:IGetRepository<TEntity>, IRepository<TEntity>
     {
 
     }

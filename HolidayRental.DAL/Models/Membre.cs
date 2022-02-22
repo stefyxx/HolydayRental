@@ -9,7 +9,7 @@ namespace HolidayRental.DAL.Models
         public int idMembre { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
-        public string email { get; set; }
+        public string Email { get; set; }
         
         //id del Pays: non ha FK
         public int Pays { get; set; }
