@@ -4,4 +4,10 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HolidayRental.Common\HolidayRental.Common.csproj" />
+    <ProjectReference Include="..\HolidayRental.DAL\HolidayRental.DAL.csproj" />
+    <ProjectReference Include="..\HoliDayRental.DB\HoliDayRental.DB.sqlproj" />
+  </ItemGroup>
+
 </Project>
