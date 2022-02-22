@@ -1,3 +1,4 @@
+using HolidayRental.Common;
 using HoliDayRental.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,7 +23,6 @@ namespace HoliDayRental
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -35,6 +35,14 @@ namespace HoliDayRental
             });      //permet de configurer les sessions pour mon application
 
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
+
+            services.AddScoped<IAllRepositoryBASE<HolidayRental.BLL.Models.Membre>, HolidayRental.BLL.Repository.MembreServices>();
+            services.AddScoped<IAllRepositoryBASE<HolidayRental.DAL.Models.Membre>, HolidayRental.DAL.Repository.MembreServices>();
+
+            services.AddScoped<IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange>, HolidayRental.BLL.Repository.BienEchangeServices>();
+            services.AddScoped<IAllRepositoryBIEN<HolidayRental.DAL.Models.BienEchange>, HolidayRental.DAL.Repository.BienEchangeServices>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
