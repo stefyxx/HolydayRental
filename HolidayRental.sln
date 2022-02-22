@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoliDayRental", "HomeShare\
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HoliDayRental.DB", "HoliDayRental.DB\HoliDayRental.DB.sqlproj", "{86D984FC-8413-4724-93FC-BAAF7FCC59C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayRental.DAL", "HolidayRental.DAL\HolidayRental.DAL.csproj", "{41F759EC-AB70-40CA-B15C-1A305DCBF977}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayRental.DAL", "HolidayRental.DAL\HolidayRental.DAL.csproj", "{41F759EC-AB70-40CA-B15C-1A305DCBF977}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayRental.Common", "HolidayRental.Common\HolidayRental.Common.csproj", "{14356F23-F3BA-447F-BF64-A699CB311711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayRental.Common", "HolidayRental.Common\HolidayRental.Common.csproj", "{14356F23-F3BA-447F-BF64-A699CB311711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayRental.BLL", "HolidayRental.BLL\HolidayRental.BLL.csproj", "{F2848483-6EE3-4A36-9434-9EF0AB7ECB9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{14356F23-F3BA-447F-BF64-A699CB311711}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14356F23-F3BA-447F-BF64-A699CB311711}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14356F23-F3BA-447F-BF64-A699CB311711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2848483-6EE3-4A36-9434-9EF0AB7ECB9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2848483-6EE3-4A36-9434-9EF0AB7ECB9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2848483-6EE3-4A36-9434-9EF0AB7ECB9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2848483-6EE3-4A36-9434-9EF0AB7ECB9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
