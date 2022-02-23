@@ -41,7 +41,6 @@ namespace HolidayRental.DAL.Repository
 
                     c.Open();
 
-
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read()) return Mapper.ToMembre(reader);
                     return null;

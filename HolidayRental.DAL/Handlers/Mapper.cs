@@ -67,5 +67,14 @@ namespace HolidayRental.DAL.Handlers
 
             };
         }
+
+        public static Pays toPays(IDataRecord record)
+        {
+            if (record is null) return null;
+            return new Pays
+            {
+                idPays = (int)record[nameof(Pays.idPays)],
+                Libelle = (string)record[nameof(Pays.Libelle)],
+            };
     }
 }

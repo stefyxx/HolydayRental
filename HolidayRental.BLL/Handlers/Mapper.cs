@@ -88,5 +88,17 @@ namespace HolidayRental.BLL.Handlers
                 DateCreation = m.DateCreation
             };
         }
+
+        public static BLL.Models.Pays ToBLL(this DAL.Models.Pays m)
+        {
+            if (m is null) return null;
+            return new Models.Pays
+            {
+                idPays = m.idPays,
+                Libelle = m.Libelle
+            };
+        }
+
+        // implementare ToDALL(Pays) all'occorrenza
     }
 }

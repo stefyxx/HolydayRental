@@ -43,6 +43,9 @@ namespace HoliDayRental
             services.AddScoped<IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange>, HolidayRental.BLL.Repository.BienEchangeServices>();
             services.AddScoped<IAllRepositoryBIEN<HolidayRental.DAL.Models.BienEchange>, HolidayRental.DAL.Repository.BienEchangeServices>();
 
+            services.AddScoped<IAllRepositoryBASE<HolidayRental.BLL.Models.Pays>, HolidayRental.BLL.Repository.PaysServices>();
+            services.AddScoped<IAllRepositoryBASE<HolidayRental.DAL.Models.Pays>, HolidayRental.DAL.Repository.PaysServeces>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
