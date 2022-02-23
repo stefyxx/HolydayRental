@@ -12,16 +12,16 @@ namespace HoliDayRental.Controllers
 {
     public class BienEchangeController : Controller
     {
-        //private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> _serviceM;
+        private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> _serviceM;
         private readonly IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> _service;
         private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> _serviceP;
         private readonly IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> _serviceBP;
-        //IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM, IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP
-        public BienEchangeController(IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> serviceBP, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP)
+
+        public BienEchangeController(IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> serviceBP, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP, IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM)
         {
             this._service = service;
             this._serviceBP = serviceBP;
-            //this._serviceM = serviceM;
+            this._serviceM = serviceM;
             this._serviceP = serviceP;
         }
 
@@ -30,8 +30,8 @@ namespace HoliDayRental.Controllers
             //IEnumerable<BienEchangeList> model = this._service.Get().Select(bien => bien.ToListBien());
 
             //.SelectMany(bien => bien.Pays);
-
             //_serviceP.Get(bien.Pays).libelle
+
             IEnumerable<BienAvecPAYS> model = _serviceBP.Get().Select(d => d.ToListBienPAYS());
             return View(model);
         }
@@ -47,10 +47,25 @@ namespace HoliDayRental.Controllers
             return View(model);
         }
 
-        // GET: BienEchangeController/Create
+
         public ActionResult Create()
         {
-            return View();
+            //label Pays
+            //label idMembre
+            //DateTime DateCreation = DateTime.Now;
+            //isEnabled = true;
+
+            BienCreate model = new BienCreate();
+
+            IEnumerable<Pays> listPays = _serviceP.Get().Select(d => d.ToPays());
+            model.PaysPossible = listPays;
+            //IEnumerable<MembreNomId> listClients = _serviceM.Get().Select(d => d.ToLabeMembre());
+            //model.listMembre = listClients;
+
+            model.DateCreation = DateTime.Now;
+            model.isEnabled = true;
+
+            return View(model);
         }
 
         // POST: BienEchangeController/Create

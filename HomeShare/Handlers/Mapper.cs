@@ -86,5 +86,16 @@ namespace HoliDayRental.Handlers
                 Photo = bien.Photo
             };
         }
+
+        public static MembreNomId ToLabeMembre(this HolidayRental.BLL.Models.Membre m)
+        {
+            if (m is null) return null;
+            return new MembreNomId
+            {
+                idMembre=m.idMembre,
+                Nom=m.Nom,
+                Prenom =m.Prenom
+            };
+        }
     }
 }

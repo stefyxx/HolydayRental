@@ -37,8 +37,8 @@ namespace HoliDayRental
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
 
-            //services.AddScoped<IAllRepositoryBASE<HolidayRental.DAL.Models.Membre>, HolidayRental.DAL.Repository.MembreServices>();
-            //services.AddScoped<IAllRepositoryBASE<HolidayRental.BLL.Models.Membre>, HolidayRental.BLL.Repository.MembreServices>();
+            services.AddScoped<IAllRepositoryBASE<HolidayRental.DAL.Models.Membre>, HolidayRental.DAL.Repository.MembreServices>();
+            services.AddScoped<IAllRepositoryBASE<HolidayRental.BLL.Models.Membre>, HolidayRental.BLL.Repository.MembreServices>();
 
             services.AddScoped<IAllRepositoryBIEN<HolidayRental.DAL.Models.BienEchange>, HolidayRental.DAL.Repository.BienEchangeServices>();
             services.AddScoped<IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange>, HolidayRental.BLL.Repository.BienEchangeServices>();
