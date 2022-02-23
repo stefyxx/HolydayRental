@@ -76,5 +76,35 @@ namespace HolidayRental.DAL.Handlers
                 idPays = (int)record[nameof(Pays.idPays)],
                 Libelle = (string)record[nameof(Pays.Libelle)],
             };
+        }
+
+
+        public static BienAvecNomPAYS ToBienAvecNomPAYS(IDataRecord record)
+        {
+            if (record is null) return null;
+            return new BienAvecNomPAYS
+            {
+                idBien = (int)record[nameof(BienEchange.idBien)],
+                titre = (string)record[nameof(BienEchange.titre)],
+                DescCourte = (string)record[nameof(BienEchange.DescCourte)],
+                DescLong = (string)record[nameof(BienEchange.DescLong)],
+                NombrePerson = (string)record[nameof(BienEchange.NombrePerson)],
+                PaysLibelle = (string)record[nameof(Membre.Pays)],
+                Ville = (string)record[nameof(BienEchange.Ville)],
+                Rue = (string)record[nameof(BienEchange.Rue)],
+                Numero = (string)record[nameof(BienEchange.Numero)],
+                CodePostal = (string)record[nameof(BienEchange.CodePostal)],
+                Photo = (string)record[nameof(BienEchange.Photo)],
+                AssuranceObligatoire = (bool)record[nameof(BienEchange.AssuranceObligatoire)],
+                isEnabled = (bool)record[nameof(BienEchange.isEnabled)],
+                //DisabledDate = (DateTime?)record[nameof(BienEchange.DisabledDate)],
+                DisabledDate = (record[nameof(BienEchange.DisabledDate)] == DBNull.Value) ? null : (DateTime?)record[nameof(BienEchange.DisabledDate)],
+
+                Latitude = (string)record[nameof(BienEchange.Latitude)],
+                Longitude = (string)record[nameof(BienEchange.Longitude)],
+                idMembre = (int)record[nameof(BienEchange.idMembre)],
+                DateCreation = (DateTime)record[nameof(BienEchange.DateCreation)]
+            };
+        }
     }
 }

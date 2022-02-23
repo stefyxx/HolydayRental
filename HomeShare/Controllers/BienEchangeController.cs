@@ -14,10 +14,12 @@ namespace HoliDayRental.Controllers
     {
         private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> _serviceM;
         private readonly IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> _service;
-        public BienEchangeController(IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM, IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service)
+        private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> _serviceP;
+        public BienEchangeController(IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM, IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP)
         {
             this._service = service;
             this._serviceM = serviceM;
+            this._serviceP = serviceP;
         }
 
         public ActionResult Index()
@@ -26,7 +28,7 @@ namespace HoliDayRental.Controllers
            
            //.SelectMany(bien => bien.Pays);
 
-           //_servicePays.Get(bien.Pays).libelle
+           //_serviceP.Get(bien.Pays).libelle
 
             return View(model);
         }

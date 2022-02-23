@@ -100,5 +100,31 @@ namespace HolidayRental.BLL.Handlers
         }
 
         // implementare ToDALL(Pays) all'occorrenza
+
+        public static BLL.Models.BienAvecNomPAYS ToBLL(this DAL.Models.BienAvecNomPAYS m)
+        {
+            if (m is null) return null;
+            return new Models.BienAvecNomPAYS
+            {
+                idBien = m.idBien,
+                titre = m.titre,
+                DescCourte = m.DescCourte,
+                DescLong = m.DescLong,
+                NombrePerson = m.NombrePerson,
+                PaysLibelle = m.PaysLibelle,
+                Ville = m.Ville,
+                Rue = m.Rue,
+                Numero = m.Numero,
+                CodePostal = m.CodePostal,
+                Photo = m.Photo,
+                AssuranceObligatoire = m.AssuranceObligatoire,
+                isEnabled = m.isEnabled,
+                DisabledDate = (m.DisabledDate is null) ? null : (DateTime?)m.DisabledDate,
+                Latitude = m.Latitude,
+                Longitude = m.Longitude,
+                idMembre = m.idMembre,
+                DateCreation = m.DateCreation
+            };
+        }
     }
 }
