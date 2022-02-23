@@ -120,18 +120,13 @@ namespace HoliDayRental.Controllers
 
         public ActionResult Edit(int id)
         {
-            BienCreate model = new BienCreate();
+            BienEdite model = this._service.Get(id).ToEditeBien();
 
             IEnumerable<Pays> listPays = _serviceP.Get().Select(d => d.ToPays());
             model.PaysPossible = listPays;
-
-            model.DateCreation = DateTime.Now;
-            model.isEnabled = true;
-
             return View(model);
         }
 
-        // POST: BienEchangeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)

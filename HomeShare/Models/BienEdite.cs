@@ -72,13 +72,14 @@ namespace HoliDayRental.Models
         [DisplayName("Le votre bien est toujour louable ? : ")]
         public bool isEnabled { get; set; }
 
+        [DisplayName("Data di fine : ")]
+        [DataType(DataType.Date)]
+        public DateTime? DisabledDate { get; set; }
+
         [Required]
         [DisplayName("Latitude : ")]
         public string Latitude { get; set; }
 
-        [DisplayName("Data di fine : ")]
-        [DataType(DataType.Date)]
-        public DateTime? DisabledDate { get; set; }
 
         [Required]
         [DisplayName("Longitude : ")]
