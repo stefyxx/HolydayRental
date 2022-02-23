@@ -47,7 +47,6 @@ namespace HoliDayRental.Controllers
             return View(model);
         }
 
-
         public ActionResult Create()
         {
             //label Pays
@@ -119,10 +118,17 @@ namespace HoliDayRental.Controllers
             }
         }
 
-        // GET: BienEchangeController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            BienCreate model = new BienCreate();
+
+            IEnumerable<Pays> listPays = _serviceP.Get().Select(d => d.ToPays());
+            model.PaysPossible = listPays;
+
+            model.DateCreation = DateTime.Now;
+            model.isEnabled = true;
+
+            return View(model);
         }
 
         // POST: BienEchangeController/Edit/5
