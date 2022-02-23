@@ -8,10 +8,10 @@ using System.Text;
 
 namespace HolidayRental.BLL.Repository
 {
-    public class BienAvecNomPAYSservices : IGetRepository<BLL.Models.BienAvecNomPAYS>
+    public class BienAvecNomPAYSservices : IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS>
     {
-        private readonly IAllRepositoryBASE<DAL.Models.BienAvecNomPAYS> _repository;
-        public BienAvecNomPAYSservices(IAllRepositoryBASE<DAL.Models.BienAvecNomPAYS> repository)
+        private readonly IGetRepository<HolidayRental.DAL.Models.BienAvecNomPAYS> _repository;
+        public BienAvecNomPAYSservices(IGetRepository<HolidayRental.DAL.Models.BienAvecNomPAYS> repository)
         {
             _repository = repository;
         }

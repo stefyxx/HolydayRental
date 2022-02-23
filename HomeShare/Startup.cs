@@ -37,17 +37,17 @@ namespace HoliDayRental
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
 
-            services.AddScoped<IAllRepositoryBASE<HolidayRental.BLL.Models.Membre>, HolidayRental.BLL.Repository.MembreServices>();
-            services.AddScoped<IAllRepositoryBASE<HolidayRental.DAL.Models.Membre>, HolidayRental.DAL.Repository.MembreServices>();
+            //services.AddScoped<IAllRepositoryBASE<HolidayRental.DAL.Models.Membre>, HolidayRental.DAL.Repository.MembreServices>();
+            //services.AddScoped<IAllRepositoryBASE<HolidayRental.BLL.Models.Membre>, HolidayRental.BLL.Repository.MembreServices>();
 
-            services.AddScoped<IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange>, HolidayRental.BLL.Repository.BienEchangeServices>();
             services.AddScoped<IAllRepositoryBIEN<HolidayRental.DAL.Models.BienEchange>, HolidayRental.DAL.Repository.BienEchangeServices>();
+            services.AddScoped<IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange>, HolidayRental.BLL.Repository.BienEchangeServices>();
 
-            services.AddScoped<IAllRepositoryBASE<HolidayRental.BLL.Models.Pays>, HolidayRental.BLL.Repository.PaysServices>();
             services.AddScoped<IAllRepositoryBASE<HolidayRental.DAL.Models.Pays>, HolidayRental.DAL.Repository.PaysServeces>();
+            services.AddScoped<IAllRepositoryBASE<HolidayRental.BLL.Models.Pays>, HolidayRental.BLL.Repository.PaysServices>();
 
-            services.AddScoped<IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS>, HolidayRental.BLL.Repository.BienAvecNomPAYSservices>();
             services.AddScoped<IGetRepository<HolidayRental.DAL.Models.BienAvecNomPAYS>, HolidayRental.DAL.Repository.BienAvecNomPAYSservices>();
+            services.AddScoped<IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS>, HolidayRental.BLL.Repository.BienAvecNomPAYSservices>();
 
         }
 

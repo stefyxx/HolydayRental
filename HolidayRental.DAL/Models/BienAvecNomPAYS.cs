@@ -10,10 +10,10 @@ namespace HolidayRental.DAL.Models
         public string titre { get; set; }
         public string DescCourte { get; set; }
         public string DescLong { get; set; }
-        public string NombrePerson { get; set; }
+        public int NombrePerson { get; set; }
 
         //LIBELLE del pays!!!
-        public string PaysLibelle { get; set; }
+        public string Pays { get; set; }
 
         public string Ville { get; set; }
         public string Rue { get; set; }

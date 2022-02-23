@@ -31,7 +31,7 @@ namespace HolidayRental.DAL.Repository
             {
                 using (SqlCommand cmd = c.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT [note], [message], [idMembre], [idBien], [DateAvis], [Approuve] FROM [AvisMembreBien] WHERE [idAvis] = @id";
+                    cmd.CommandText = "SELECT [idAvis], [note], [message], [idMembre], [idBien], [DateAvis], [Approuve] FROM [AvisMembreBien] WHERE [idAvis] = @id";
 
                     SqlParameter p_id = new SqlParameter("id", id);
                     cmd.Parameters.Add(p_id);

@@ -12,31 +12,39 @@ namespace HoliDayRental.Controllers
 {
     public class BienEchangeController : Controller
     {
-        private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> _serviceM;
+        //private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> _serviceM;
         private readonly IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> _service;
         private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> _serviceP;
-        public BienEchangeController(IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM, IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP)
+        private readonly IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> _serviceBP;
+        //IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM, IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP
+        public BienEchangeController(IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> serviceBP, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP)
         {
             this._service = service;
-            this._serviceM = serviceM;
+            this._serviceBP = serviceBP;
+            //this._serviceM = serviceM;
             this._serviceP = serviceP;
         }
 
         public ActionResult Index()
         {
-            IEnumerable<BienEchangeList> model = this._service.GetBienParPaysV().Select(bien => bien.ToListBien());
-           
-           //.SelectMany(bien => bien.Pays);
+            //IEnumerable<BienEchangeList> model = this._service.Get().Select(bien => bien.ToListBien());
 
-           //_serviceP.Get(bien.Pays).libelle
+            //.SelectMany(bien => bien.Pays);
 
+            //_serviceP.Get(bien.Pays).libelle
+            IEnumerable<BienAvecPAYS> model = _serviceBP.Get().Select(d => d.ToListBienPAYS());
             return View(model);
         }
 
-        // GET: BienEchangeController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            //BienEchangeDetails model = _serviceBP.Get(id).ToDetailsBien();
+
+            BienEchangeDetails model = _service.Get(id).ToDetBienSansPay();
+            Pays pays = _serviceP.Get(model.idBien).ToPays();
+            model.libellePays = pays.Libelle;
+
+            return View(model);
         }
 
         // GET: BienEchangeController/Create

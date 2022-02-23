@@ -33,7 +33,7 @@ namespace HolidayRental.DAL.Handlers
                 titre = (string)record[nameof(BienEchange.titre)],
                 DescCourte = (string)record[nameof(BienEchange.DescCourte)],
                 DescLong = (string)record[nameof(BienEchange.DescLong)],
-                NombrePerson = (string)record[nameof(BienEchange.NombrePerson)],
+                NombrePerson = (int)record[nameof(BienEchange.NombrePerson)],
                 Pays = (int)record[nameof(Membre.Pays)],
                 Ville = (string)record[nameof(BienEchange.Ville)],
                 Rue = (string)record[nameof(BienEchange.Rue)],
@@ -44,7 +44,6 @@ namespace HolidayRental.DAL.Handlers
                 isEnabled = (bool)record[nameof(BienEchange.isEnabled)],
                 //DisabledDate = (DateTime?)record[nameof(BienEchange.DisabledDate)],
                 DisabledDate = (record[nameof(BienEchange.DisabledDate)] == DBNull.Value)? null : (DateTime?)record[nameof(BienEchange.DisabledDate)],
-
                 Latitude = (string)record[nameof(BienEchange.Latitude)],
                 Longitude = (string)record[nameof(BienEchange.Longitude)],
                 idMembre = (int)record[nameof(BienEchange.idMembre)],
@@ -84,26 +83,26 @@ namespace HolidayRental.DAL.Handlers
             if (record is null) return null;
             return new BienAvecNomPAYS
             {
-                idBien = (int)record[nameof(BienEchange.idBien)],
-                titre = (string)record[nameof(BienEchange.titre)],
-                DescCourte = (string)record[nameof(BienEchange.DescCourte)],
-                DescLong = (string)record[nameof(BienEchange.DescLong)],
-                NombrePerson = (string)record[nameof(BienEchange.NombrePerson)],
-                PaysLibelle = (string)record[nameof(Membre.Pays)],
-                Ville = (string)record[nameof(BienEchange.Ville)],
-                Rue = (string)record[nameof(BienEchange.Rue)],
-                Numero = (string)record[nameof(BienEchange.Numero)],
-                CodePostal = (string)record[nameof(BienEchange.CodePostal)],
-                Photo = (string)record[nameof(BienEchange.Photo)],
-                AssuranceObligatoire = (bool)record[nameof(BienEchange.AssuranceObligatoire)],
-                isEnabled = (bool)record[nameof(BienEchange.isEnabled)],
+                idBien = (int)record[nameof(BienAvecNomPAYS.idBien)],
+                titre = (string)record[nameof(BienAvecNomPAYS.titre)],
+                DescCourte = (string)record[nameof(BienAvecNomPAYS.DescCourte)],
+                DescLong = (string)record[nameof(BienAvecNomPAYS.DescLong)],
+                NombrePerson = (int)record[nameof(BienAvecNomPAYS.NombrePerson)],
+                Pays = (string)record[nameof(BienAvecNomPAYS.Pays)],
+                Ville = (string)record[nameof(BienAvecNomPAYS.Ville)],
+                Rue = (string)record[nameof(BienAvecNomPAYS.Rue)],
+                Numero = (string)record[nameof(BienAvecNomPAYS.Numero)],
+                CodePostal = (string)record[nameof(BienAvecNomPAYS.CodePostal)],
+                Photo = (string)record[nameof(BienAvecNomPAYS.Photo)],
+                AssuranceObligatoire = (bool)record[nameof(BienAvecNomPAYS.AssuranceObligatoire)],
+                isEnabled = (bool)record[nameof(BienAvecNomPAYS.isEnabled)],
                 //DisabledDate = (DateTime?)record[nameof(BienEchange.DisabledDate)],
-                DisabledDate = (record[nameof(BienEchange.DisabledDate)] == DBNull.Value) ? null : (DateTime?)record[nameof(BienEchange.DisabledDate)],
+                DisabledDate = (record[nameof(BienAvecNomPAYS.DisabledDate)] == DBNull.Value) ? null : (DateTime?)record[nameof(BienAvecNomPAYS.DisabledDate)],
 
-                Latitude = (string)record[nameof(BienEchange.Latitude)],
-                Longitude = (string)record[nameof(BienEchange.Longitude)],
-                idMembre = (int)record[nameof(BienEchange.idMembre)],
-                DateCreation = (DateTime)record[nameof(BienEchange.DateCreation)]
+                Latitude = (string)record[nameof(BienAvecNomPAYS.Latitude)],
+                Longitude = (string)record[nameof(BienAvecNomPAYS.Longitude)],
+                idMembre = (int)record[nameof(BienAvecNomPAYS.idMembre)],
+                DateCreation = (DateTime)record[nameof(BienAvecNomPAYS.DateCreation)]
             };
         }
     }

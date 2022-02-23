@@ -8,10 +8,10 @@ using System.Text;
 
 namespace HolidayRental.BLL.Repository
 {
-    public class MembreServices : IAllRepositoryBASE<BLL.Models.Membre>
+    public class MembreServices : IAllRepositoryBASE<HolidayRental.BLL.Models.Membre>
     {
-        private readonly IAllRepositoryBASE<DAL.Models.Membre> _repository;
-        public MembreServices(IAllRepositoryBASE<DAL.Models.Membre> repository)
+        private readonly IAllRepositoryBASE<HolidayRental.DAL.Models.Membre> _repository;
+        public MembreServices(IAllRepositoryBASE<HolidayRental.DAL.Models.Membre> repository)
         {
             _repository = repository;
         }

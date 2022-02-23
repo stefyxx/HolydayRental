@@ -20,7 +20,7 @@ namespace HoliDayRental.Models
         public string DescCourte { get; set; }
 
         [DisplayName("Combien de personnes max: ")]
-        public string NombrePerson { get; set; }
+        public int NombrePerson { get; set; }
 
         [ScaffoldColumn(false)]
         public int Pays { get; set; }

@@ -10,7 +10,7 @@ namespace HolidayRental.BLL.Models
         public string titre { get; set; }
         public string DescCourte { get; set; }
         public string DescLong { get; set; }
-        public string NombrePerson { get; set; }
+        public int NombrePerson { get; set; }
 
         //LIBELLE del pays!!!
         public string PaysLibelle { get; set; }

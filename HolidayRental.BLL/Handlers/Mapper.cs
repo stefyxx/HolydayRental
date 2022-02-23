@@ -6,10 +6,10 @@ namespace HolidayRental.BLL.Handlers
 {
     public static class Mapper
     {
-        public static BLL.Models.Membre ToBLL(this DAL.Models.Membre m)
+        public static HolidayRental.BLL.Models.Membre ToBLL(this HolidayRental.DAL.Models.Membre m)
         {
             if (m is null) return null;
-            return new Models.Membre
+            return new HolidayRental.BLL.Models.Membre
             {
                 idMembre = m.idMembre,
                 Nom = m.Nom,
@@ -22,10 +22,10 @@ namespace HolidayRental.BLL.Handlers
             };
         }
 
-        public static DAL.Models.Membre ToDAL(this BLL.Models.Membre m)
+        public static HolidayRental.DAL.Models.Membre ToDAL(this HolidayRental.BLL.Models.Membre m)
         {
             if (m is null) return null;
-            return new DAL.Models.Membre
+            return new HolidayRental.DAL.Models.Membre
             {
                 idMembre = m.idMembre,
                 Nom = m.Nom,
@@ -38,10 +38,10 @@ namespace HolidayRental.BLL.Handlers
             };
         }
 
-        public static BLL.Models.BienEchange ToBLL(this DAL.Models.BienEchange m)
+        public static HolidayRental.BLL.Models.BienEchange ToBLL(this HolidayRental.DAL.Models.BienEchange m)
         {
             if (m is null) return null;
-            return new Models.BienEchange
+            return new HolidayRental.BLL.Models.BienEchange
             {
                 idBien = m.idBien,
                 titre = m.titre,
@@ -63,10 +63,10 @@ namespace HolidayRental.BLL.Handlers
                 DateCreation =m.DateCreation
             };
         }
-        public static DAL.Models.BienEchange ToDAL(this BLL.Models.BienEchange m)
+        public static HolidayRental.DAL.Models.BienEchange ToDAL(this HolidayRental.BLL.Models.BienEchange m)
         {
             if (m is null) return null;
-            return new DAL.Models.BienEchange
+            return new HolidayRental.DAL.Models.BienEchange
             {
                 idBien = m.idBien,
                 titre = m.titre,
@@ -89,10 +89,10 @@ namespace HolidayRental.BLL.Handlers
             };
         }
 
-        public static BLL.Models.Pays ToBLL(this DAL.Models.Pays m)
+        public static HolidayRental.BLL.Models.Pays ToBLL(this HolidayRental.DAL.Models.Pays m)
         {
             if (m is null) return null;
-            return new Models.Pays
+            return new HolidayRental.BLL.Models.Pays
             {
                 idPays = m.idPays,
                 Libelle = m.Libelle
@@ -101,17 +101,17 @@ namespace HolidayRental.BLL.Handlers
 
         // implementare ToDALL(Pays) all'occorrenza
 
-        public static BLL.Models.BienAvecNomPAYS ToBLL(this DAL.Models.BienAvecNomPAYS m)
+        public static HolidayRental.BLL.Models.BienAvecNomPAYS ToBLL(this HolidayRental.DAL.Models.BienAvecNomPAYS m)
         {
             if (m is null) return null;
-            return new Models.BienAvecNomPAYS
+            return new HolidayRental.BLL.Models.BienAvecNomPAYS
             {
                 idBien = m.idBien,
                 titre = m.titre,
                 DescCourte = m.DescCourte,
                 DescLong = m.DescLong,
                 NombrePerson = m.NombrePerson,
-                PaysLibelle = m.PaysLibelle,
+                PaysLibelle = m.Pays,
                 Ville = m.Ville,
                 Rue = m.Rue,
                 Numero = m.Numero,

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HoliDayRental.Models.BienEchangeList>
+﻿@model IEnumerable<HoliDayRental.Models.BienAvecPAYS>
 
 @{
     ViewData["Title"] = "Index";
@@ -43,16 +43,16 @@
                 @Html.DisplayFor(modelItem => item.NombrePerson)
             </td>
             <td>
-                @* @Html.DisplayFor(modelItem => item.libellePays) *@
+                @Html.DisplayFor(modelItem => item.libellePays)
             </td>
         <td>
             @* @Html.DisplayFor(modelItem => item.Photo) *@
-                <img width="300" src="~/assets/@Html.DisplayFor(modelItem => item.Photo) alt="Photo bien" />
+                <img width="300" src="~images/assets/@Html.DisplayFor(modelItem => item.Photo)" alt="Photo bien" />
 
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idBien}) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
