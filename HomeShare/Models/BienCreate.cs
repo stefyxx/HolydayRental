@@ -20,7 +20,7 @@ namespace HoliDayRental.Models
         public string titre { get; set; }
 
         [Required]
-        [DataType(DataType.ImageUrl)]
+        //[DataType(DataType.ImageUrl)]
         public string Photo { get; set; }
 
         [Required]
@@ -39,7 +39,7 @@ namespace HoliDayRental.Models
         [DisplayName("Combien de personnes max: ")]
         public int NombrePerson { get; set; }
 
-        //[ScaffoldColumn(false)]
+        [ScaffoldColumn(false)]
         public int Pays { get; set; }   //id Pays
 
 
@@ -62,13 +62,13 @@ namespace HoliDayRental.Models
         [DisplayName("zip: ")]
         [DataType(DataType.Text)]
         public string CodePostal { get; set; }
-        public string libellePays { get; set; }
 
         [Required]
         [DisplayName("Assuré ? : ")]
         public bool AssuranceObligatoire { get; set; }
 
         //scrivo nel POST che sarà "true"
+        [ScaffoldColumn(false)]
         public bool isEnabled { get; set; }
 
         [Required]
@@ -83,14 +83,18 @@ namespace HoliDayRental.Models
         public bool isValide { get; set; }
 
         //metto oggi
+        [ScaffoldColumn(false)]
         public DateTime DateCreation { get; set; }
 
         //creare un select per questo anche
+        [ScaffoldColumn(false)]
         public int idMembre { get; set; }
 
         //extra:
-
+        [ScaffoldColumn(false)]
         public IEnumerable<Pays> PaysPossible { get; set; }
+
+        [ScaffoldColumn(false)]
         public IEnumerable<MembreNomId> listMembre { get; set; }
 
     }

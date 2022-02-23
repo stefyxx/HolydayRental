@@ -4,129 +4,122 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Mettez votre bien à disposition et profitez des avantages d'être notre affilié</h2>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="titre" class="control-label"></label>
-                <input asp-for="titre" class="form-control" />
-                <span asp-validation-for="titre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Photo" class="control-label"></label>
-                <input asp-for="Photo" class="form-control" />
-                <span asp-validation-for="Photo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DescCourte" class="control-label"></label>
-                <input asp-for="DescCourte" class="form-control" />
-                <span asp-validation-for="DescCourte" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DescLong" class="control-label"></label>
-                <textarea asp-for="DescLong" class="form-control"></textarea>
-                <span asp-validation-for="DescLong" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NombrePerson" class="control-label"></label>
-                <input asp-for="NombrePerson" class="form-control" />
-                <span asp-validation-for="NombrePerson" class="text-danger"></span>
-            </div>
+<div style="margin-left:20%">
+    <h2>Mettez votre bien à disposition et profitez des avantages d'être notre affilié</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="titre" class="control-label"></label>
+                    <input asp-for="titre" class="form-control" />
+                    <span asp-validation-for="titre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo" class="control-label"></label>
+                    <input asp-for="Photo" class="form-control" />
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DescCourte" class="control-label"></label>
+                    <input asp-for="DescCourte" class="form-control" />
+                    <span asp-validation-for="DescCourte" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DescLong" class="control-label"></label>
+                    <textarea asp-for="DescLong" class="form-control"></textarea>
+                    <span asp-validation-for="DescLong" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NombrePerson" class="control-label"></label>
+                    <input asp-for="NombrePerson" class="form-control" />
+                    <span asp-validation-for="NombrePerson" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="libellePays" class="control-label"></label>
-                <input asp-for="libellePays" class="form-control" />
-                <span asp-validation-for="libellePays" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <select name="Pays">
+                        @foreach (Pays item in Model.PaysPossible)
+                        {
+                            <option value="@item.idPays">@item.Libelle</option>
+                        }
+                    </select>
+                </div>
 
-            @*<div class="form-group">
-                <select name="selected_pays">
-        @foreach (Pays item in Model.PaysPossible)
-        {
-            <option value="@item.idPays">@item.Libelle</option>
-        }
-        </select>
+                @*<label asp-for="Pays" class="control-label"></label>
+                    @Html.DropDownListFor(p => p.Pays, Model.PaysPossible.Select(o => new SelectListItem { Value = o.idPays.ToString(), Text = o.Libelle })) *@
 
-            <label asp-for="Pays" class="control-label"></label>
-            @Html.DropDownListFor(p => p.Pays, Model.PaysPossible.Select(o => new SelectListItem { Value = o.idPays.ToString(), Text = o.Libelle }))
-            <!--<input asp-for="libellePays" class="form-control" />-->
-            <span asp-validation-for="libellePays" class="text-danger"></span>
-        </div>*@
+                <div class="form-group">
+                    <label asp-for="Ville" class="control-label"></label>
+                    <input asp-for="Ville" class="form-control" />
+                    <span asp-validation-for="Ville" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Rue" class="control-label"></label>
+                    <input asp-for="Rue" class="form-control" />
+                    <span asp-validation-for="Rue" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Numero" class="control-label"></label>
+                    <input asp-for="Numero" class="form-control" />
+                    <span asp-validation-for="Numero" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodePostal" class="control-label"></label>
+                    <input asp-for="CodePostal" class="form-control" />
+                    <span asp-validation-for="CodePostal" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Ville" class="control-label"></label>
-                <input asp-for="Ville" class="form-control" />
-                <span asp-validation-for="Ville" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rue" class="control-label"></label>
-                <input asp-for="Rue" class="form-control" />
-                <span asp-validation-for="Rue" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Numero" class="control-label"></label>
-                <input asp-for="Numero" class="form-control" />
-                <span asp-validation-for="Numero" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CodePostal" class="control-label"></label>
-                <input asp-for="CodePostal" class="form-control" />
-                <span asp-validation-for="CodePostal" class="text-danger"></span>
-            </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="AssuranceObligatoire" /> @Html.DisplayNameFor(model => model.AssuranceObligatoire)
+                    </label>
+                </div>
 
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="AssuranceObligatoire" /> @Html.DisplayNameFor(model => model.AssuranceObligatoire)
-                </label>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Latitude" class="control-label"></label>
+                    <input asp-for="Latitude" class="form-control" />
+                    <span asp-validation-for="Latitude" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Longitude" class="control-label"></label>
+                    <input asp-for="Longitude" class="form-control" />
+                    <span asp-validation-for="Longitude" class="text-danger"></span>
+                </div>
 
-            @*
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="isEnabled" /> @Html.DisplayNameFor(model => model.isEnabled)
-            </label>
-        </div>*@
+                <div class="form-group">
+                    <select name="idMembre">
+                        @foreach (MembreNomId membre in Model.listMembre)
+                        {
+                            <option value="@membre.idMembre">@membre.Nom @membre.Prenom</option>
+                        }
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Latitude" class="control-label"></label>
-                <input asp-for="Latitude" class="form-control" />
-                <span asp-validation-for="Latitude" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Longitude" class="control-label"></label>
-                <input asp-for="Longitude" class="form-control" />
-                <span asp-validation-for="Longitude" class="text-danger"></span>
-            </div>
+                @*<div class="form-group">
+                            <label asp-for="idMembre" class="control-label"></label>
+                            @Html.DropDownListFor(m=>m.idMembre, Model.listMembre.Select(
+                    o=> new SelectListItem {
+                        Value = o.idMembre.ToString() , Text= o.Nom +" " + o.Prenom
+                    }))
+                    </div>*@
 
-            @*<div class="form-group">
-                        <label asp-for="idMembre" class="control-label"></label>
-                        @Html.DropDownListFor(m=>m.idMembre, Model.listMembre.Select(
-                o=> new SelectListItem {
-                    Value = o.idMembre.ToString() , Text= o.Nom +" " + o.Prenom
-                }))
-                    <input asp-for="idMembre" class="form-control" />
-                    <span asp-validation-for="idMembre" class="text-danger"></span>
-        </div>*@
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="isValide" /> @Html.DisplayNameFor(model => model.isValide)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
 
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="isValide" /> @Html.DisplayNameFor(model => model.isValide)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div>
+        <a asp-action="Index">Back to List</a>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

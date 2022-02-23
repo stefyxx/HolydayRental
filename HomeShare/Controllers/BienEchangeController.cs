@@ -59,8 +59,9 @@ namespace HoliDayRental.Controllers
 
             IEnumerable<Pays> listPays = _serviceP.Get().Select(d => d.ToPays());
             model.PaysPossible = listPays;
-            //IEnumerable<MembreNomId> listClients = _serviceM.Get().Select(d => d.ToLabeMembre());
-            //model.listMembre = listClients;
+
+            IEnumerable<MembreNomId> listClients = _serviceM.Get().Select(d => d.ToLabeMembre());
+            model.listMembre = listClients;
 
             model.DateCreation = DateTime.Now;
             model.isEnabled = true;

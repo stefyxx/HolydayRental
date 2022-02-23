@@ -48,7 +48,6 @@ namespace HolidayRental.DAL.Repository
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read()) yield return Mapper.toPays(reader);
-
                 }
             }
         }

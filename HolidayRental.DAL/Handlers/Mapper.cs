@@ -20,7 +20,7 @@ namespace HolidayRental.DAL.Handlers
                 Pays = (int)record[nameof(Membre.Pays)],
                 Telephone = (string)record[nameof(Membre.Telephone)],
                 Login = (string)record[nameof(Membre.Login)],
-                Password = (string)record[nameof(Membre.Password)]
+                //Password = (string)record[nameof(Membre.Password)]
             };
         }
 
