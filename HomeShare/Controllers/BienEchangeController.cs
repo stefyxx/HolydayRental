@@ -69,18 +69,53 @@ namespace HoliDayRental.Controllers
             return View(model);
         }
 
-        // POST: BienEchangeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(BienCreate collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (!ModelState.IsValid) throw new Exception();
+                if (!collection.isValide) throw new Exception("Il faut valider le formulair!");
+                if(collection.DisabledDate == DateTime.Now) throw new Exception("Il faut DONNER LA POSSIBILITe' DE LOUER VOTRE BIEN !");
+
+                //BienCreate devo trasformarla in BLL.Bien:
+                HolidayRental.BLL.Models.BienEchange result = new HolidayRental.BLL.Models.BienEchange() {
+                    idBien = collection.idBien,
+                    titre = collection.titre,
+                    DescCourte = collection.DescCourte,
+                    DescLong = collection.DescLong,
+                    NombrePerson =collection.NombrePerson,
+                    Pays= collection.Pays,
+                    Ville =collection.Ville,
+                    Rue =collection.Rue,
+                    Numero =collection.Numero,
+                    CodePostal = collection.CodePostal,
+                    Photo = collection.Photo,
+                    AssuranceObligatoire = collection.AssuranceObligatoire,
+                    isEnabled = true,
+                    DisabledDate= collection.DisabledDate,
+                    Latitude = collection.Latitude,
+                    Longitude = collection.Longitude,
+                    idMembre = collection.idMembre,
+                    DateCreation = DateTime.Now
+                };
+                this._service.Insert(result);
+                return RedirectToAction(nameof(Index),"Home");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                ViewBag.Error = e.Message;
+                //riempio di nuovo il select:
+                IEnumerable<Pays> listPays = _serviceP.Get().Select(d => d.ToPays());
+                IEnumerable<MembreNomId> listClients = _serviceM.Get().Select(d => d.ToLabeMembre());
+                collection.PaysPossible = listPays;
+                collection.listMembre = listClients;
+
+                collection.DateCreation = DateTime.Now;
+                collection.isEnabled = true;
+
+                return View(collection);
             }
         }
 

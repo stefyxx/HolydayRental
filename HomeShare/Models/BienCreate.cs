@@ -15,7 +15,7 @@ namespace HoliDayRental.Models
 
         [Required]
         [DisplayName("Titre: ")]
-        [StringLength(maximumLength: 10, MinimumLength = 2, ErrorMessage = "Le titre doit comporter au moins 2 caractères")]
+        [StringLength(maximumLength: 100, MinimumLength = 2, ErrorMessage = "Le titre doit comporter au moins 2 caractères")]
         [DataType(DataType.Text)]
         public string titre { get; set; }
 
@@ -25,7 +25,7 @@ namespace HoliDayRental.Models
 
         [Required]
         [DisplayName("Description petit: ")]
-        [StringLength(maximumLength: 100, MinimumLength = 2, ErrorMessage = "Le titre doit comporter au moins 2 caractères")]
+        [StringLength(maximumLength: 300, MinimumLength = 2, ErrorMessage = "Le titre doit comporter au moins 2 caractères")]
         [DataType(DataType.Text)]
         public string DescCourte { get; set; }
 
@@ -60,6 +60,7 @@ namespace HoliDayRental.Models
 
         [Required]
         [DisplayName("zip: ")]
+        [MaxLength(6)]
         [DataType(DataType.Text)]
         public string CodePostal { get; set; }
 
@@ -75,6 +76,9 @@ namespace HoliDayRental.Models
         [DisplayName("Latitude : ")]
         public string Latitude { get; set; }
 
+        [DisplayName("Data di fine : ")]
+        public DateTime? DisabledDate { get; set; }
+
         [Required]
         [DisplayName("Longitude : ")]
         public string Longitude { get; set; }
@@ -84,6 +88,7 @@ namespace HoliDayRental.Models
 
         //metto oggi
         [ScaffoldColumn(false)]
+        [DataType(DataType.Date)]
         public DateTime DateCreation { get; set; }
 
         //creare un select per questo anche
