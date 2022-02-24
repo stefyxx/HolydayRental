@@ -15,17 +15,18 @@ namespace HoliDayRental.Models
 
         [Required]
         [DisplayName("Titre: ")]
-        [StringLength(maximumLength: 100, MinimumLength = 2, ErrorMessage = "Le titre doit comporter au moins 2 caractères")]
+        [StringLength(maximumLength: 50, MinimumLength = 2, ErrorMessage = "Le titre doit comporter au moins 2 caractères")]
         [DataType(DataType.Text)]
         public string titre { get; set; }
 
-        [Required]
         //[DataType(DataType.ImageUrl)]
+        [Required]
+        [MaxLength(50)]
         public string Photo { get; set; }
 
         [Required]
         [DisplayName("Description petit: ")]
-        [StringLength(maximumLength: 300, MinimumLength = 2, ErrorMessage = "Le titre doit comporter au moins 2 caractères")]
+        [StringLength(maximumLength: 150, MinimumLength = 2, ErrorMessage = "Le titre doit comporter au moins 2 caractères")]
         [DataType(DataType.Text)]
         public string DescCourte { get; set; }
 
@@ -37,6 +38,7 @@ namespace HoliDayRental.Models
 
         [Required]
         [DisplayName("Combien de personnes max: ")]
+        
         public int NombrePerson { get; set; }
 
         [ScaffoldColumn(false)]
@@ -46,21 +48,24 @@ namespace HoliDayRental.Models
         [Required]
         [DisplayName("Ville: ")]
         [DataType(DataType.Text)]
+        [MaxLength(50)]
         public string Ville { get; set; }
 
         [Required]
         [DisplayName("Adresse: ")]
         [DataType(DataType.Text)]
+        [MaxLength(50)]
         public string Rue { get; set; }
 
         [Required]
         [DisplayName("Numero: ")]
         [DataType(DataType.Text)]
+        [MaxLength(5)]
         public string Numero { get; set; }
 
         [Required]
         [DisplayName("zip: ")]
-        [MaxLength(6)]
+        [MaxLength(50)]
         [DataType(DataType.Text)]
         public string CodePostal { get; set; }
 
@@ -74,6 +79,7 @@ namespace HoliDayRental.Models
 
         [Required]
         [DisplayName("Latitude : ")]
+        [MaxLength(50)]
         public string Latitude { get; set; }
 
         [DisplayName("Data di fine : ")]
@@ -81,6 +87,7 @@ namespace HoliDayRental.Models
 
         [Required]
         [DisplayName("Longitude : ")]
+        [MaxLength(50)]
         public string Longitude { get; set; }
 
         [Required]

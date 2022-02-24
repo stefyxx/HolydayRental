@@ -16,7 +16,7 @@ namespace HoliDayRental.Controllers
         private readonly IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> _service;
         private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> _serviceP;
         private readonly IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> _serviceBP;
-
+        //J'ai oublié les OPTIONS a ajouter aprés
         public BienEchangeController(IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> serviceBP, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP, IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM)
         {
             this._service = service;

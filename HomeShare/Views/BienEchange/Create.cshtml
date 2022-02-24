@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="NombrePerson" class="control-label"></label>
-                    <input asp-for="NombrePerson" class="form-control" />
+                    <input asp-for="NombrePerson" class="form-control" min="0" step="1"/>
                     <span asp-validation-for="NombrePerson" class="text-danger"></span>
                 </div>
 
@@ -78,12 +78,12 @@
 
                 <div class="form-group">
                     <label asp-for="Latitude" class="control-label"></label>
-                    <input asp-for="Latitude" class="form-control" />
+                    <input asp-for="Latitude" class="form-control" placeholder="12.3456" />
                     <span asp-validation-for="Latitude" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Longitude" class="control-label"></label>
-                    <input asp-for="Longitude" class="form-control" />
+                    <input asp-for="Longitude" class="form-control" placeholder="12.3456" />
                     <span asp-validation-for="Longitude" class="text-danger"></span>
                 </div>
                 <div class="form-group">
