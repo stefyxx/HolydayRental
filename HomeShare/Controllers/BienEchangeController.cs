@@ -181,25 +181,41 @@ namespace HoliDayRental.Controllers
             }
         }
 
-        // GET: BienEchangeController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            BienDelete model = _service.Get(id).ToDeleteBien();
+            model.Pays = _serviceP.Get((int)model.idPays).ToPays();
+            model.membre = _serviceM.Get((int)model.idMembre).ToLabeMembre();
+            return View(model);
         }
 
         // POST: BienEchangeController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, BienDelete collection)
         {
+            //e se un pirata non passa x l'interfaccia ma dall'url?
+            HolidayRental.BLL.Models.BienEchange result = this._service.Get(id);
+
             try
             {
+                if (!ModelState.IsValid) throw new Exception();
+                if (!collection.isValide) throw new Exception("Il faut valider le formulair!");
+                if (result is null) throw new Exception("Nessun developer con questo identificante");
+
+                this._service.Delete(id);
+                return RedirectToAction(nameof(Index),"Home");
+            }
+            catch(Exception e)
+            {
+                ViewBag.Error = e.Message;
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+        }
+
+        public ActionResult ViewOk()
+        {
+            return View();
         }
     }
 }

@@ -43,6 +43,9 @@ namespace HoliDayRental.Controllers
             }
         }
 
+        //LOGGIN
+
+
         public ActionResult Details(int id)
         {
             MembreDetails model = _serviceM.Get(id).ToDetailsMembre();

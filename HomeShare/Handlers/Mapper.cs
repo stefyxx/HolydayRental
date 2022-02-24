@@ -88,7 +88,24 @@ namespace HoliDayRental.Handlers
                 DateCreation = bien.DateCreation,
                 idMembre= bien.idMembre
             };
+        }
 
+        public static BienDelete ToDeleteBien(this HolidayRental.BLL.Models.BienEchange bien)
+        {
+            if (bien is null) return null;
+            return new BienDelete
+            {
+                idBien= bien.idBien,
+                Photo =bien.Photo,
+                titre =bien.titre,
+                Ville=bien.Ville,
+                Rue = bien.Rue,
+                Numero= bien.Numero,
+                CodePostal =bien.CodePostal,
+                NombrePerson=bien.NombrePerson,
+                idMembre =bien.idMembre,
+                idPays=bien.Pays
+            };
         }
 
         public static Pays ToPays(this HolidayRental.BLL.Models.Pays p)

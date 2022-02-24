@@ -92,6 +92,7 @@ namespace HoliDayRental.Models
         public string Longitude { get; set; }
 
         [Required]
+        [DisplayName("Valider le formulaire")]
         public bool isValide { get; set; }
 
         //da recuperare se non voglio un errore in BLL->DAL perché sono NOT NULL

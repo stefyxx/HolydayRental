@@ -1,4 +1,32 @@
 ﻿@model HoliDayRental.Models.BienEdite
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@{
+    void CheckErrors(string tagName)
+    {
+        ModelStateEntry modelStateEntry;
+
+        if (!ViewContext.ModelState.IsValid && ViewContext.ModelState.TryGetValue(tagName, out modelStateEntry))
+        {
+            <span style="color:white; background-color:red">
+                @foreach (var error in modelStateEntry.Errors)
+                {
+                    @error.ErrorMessage<br />
+                }
+            </span>
+        }
+    }
+}
+@if (Model is not null)
+    @Html.ActionLink("viewOk", "ViewOk")
+{
+
+
+@if (!ViewContext.ModelState.IsValid)
+{
+    <div>
+        Le formulaire contient @ViewContext.ModelState.ErrorCount erreur(s).
+    </div>
+}
 
 @{
     ViewData["Title"] = "Edit";

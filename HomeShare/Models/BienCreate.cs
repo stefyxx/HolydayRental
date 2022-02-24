@@ -90,6 +90,7 @@ namespace HoliDayRental.Models
         public string Longitude { get; set; }
 
         [Required]
+        [DisplayName("Valider le formulaire")]
         public bool isValide { get; set; }
 
         //metto oggi
