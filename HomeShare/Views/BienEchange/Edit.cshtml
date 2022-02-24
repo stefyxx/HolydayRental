@@ -19,7 +19,10 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Photo" class="control-label"></label>
-                    <input asp-for="Photo" class="form-control" />
+                    <img src="~/images/assets/@Html.DisplayFor(model => model.Photo)" style="width:200px" />
+                    @*<input asp-for="Photo" class="form-control" />*@
+                    <input type="text" value="@Html.DisplayFor(model => model.Photo)" id="Photo" name="Photo">
+                    @*<input type="button" onclick="window.location.href='http://webpage.com/images/'+document.getElementById('Photo').value +'.jpg'" value="GO">*@
                     <span asp-validation-for="Photo" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -77,19 +80,20 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Latitude" class="control-label"></label>
-                    <input asp-for="Latitude" class="form-control" />
+                    <input asp-for="Latitude" class="form-control" placeholder="12.3456" />
                     <span asp-validation-for="Latitude" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="DisabledDate" class="control-label"></label>
-                    <input asp-for="DisabledDate" class="form-control" />
-                    <span asp-validation-for="DisabledDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
                     <label asp-for="Longitude" class="control-label"></label>
-                    <input asp-for="Longitude" class="form-control" />
+                    <input asp-for="Longitude" class="form-control" placeholder="12.3456" />
                     <span asp-validation-for="Longitude" class="text-danger"></span>
                 </div>
+                <div class="form-group">
+                    <label asp-for="DisabledDate" class="control-label"></label>
+                    <input type="date" id="DisabledDate" name="DisabledDate" />
+                    <span asp-validation-for="DisabledDate" class="text-danger"></span>
+                </div>
+
                 <div class="form-group form-check">
                     <label class="form-check-label">
                         <input class="form-check-input" asp-for="isValide" /> @Html.DisplayNameFor(model => model.isValide)
@@ -107,5 +111,5 @@
     </div>
 </div>
 @*@section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }*@

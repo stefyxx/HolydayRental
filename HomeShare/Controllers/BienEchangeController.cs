@@ -41,7 +41,7 @@ namespace HoliDayRental.Controllers
             //BienEchangeDetails model = _serviceBP.Get(id).ToDetailsBien();
 
             BienEchangeDetails model = _service.Get(id).ToDetBienSansPay();
-            Pays pays = _serviceP.Get(model.idBien).ToPays();
+            Pays pays = _serviceP.Get(model.Pays).ToPays();
             model.libellePays = pays.Libelle;
 
             return View(model);
@@ -127,7 +127,7 @@ namespace HoliDayRental.Controllers
         public ActionResult Edit(int id)
         {
             BienEdite model = this._service.Get(id).ToEditeBien();
-
+            // il get(id) ha già il suo idMembre che non deve essere modificato
             IEnumerable<Pays> listPays = _serviceP.Get().Select(d => d.ToPays());
             model.PaysPossible = listPays;
             return View(model);
@@ -135,15 +135,49 @@ namespace HoliDayRental.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, BienEdite collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (!ModelState.IsValid) throw new Exception();
+                if (!collection.isValide) throw new Exception("Il faut valider le formulair!");
+
+                //collection.idMembre = _service.Get(id).idMembre;
+                //collection.DateCreation = _service.Get(id).DateCreation;
+
+                //BienEdite ->in BLL.Bien:
+                HolidayRental.BLL.Models.BienEchange result = new HolidayRental.BLL.Models.BienEchange()
+                {
+                    idBien = collection.idBien,
+                    titre = collection.titre,
+                    DescCourte = collection.DescCourte,
+                    DescLong = collection.DescLong,
+                    NombrePerson = collection.NombrePerson,
+                    Pays = collection.Pays,
+                    Ville = collection.Ville,
+                    Rue = collection.Rue,
+                    Numero = collection.Numero,
+                    CodePostal = collection.CodePostal,
+                    Photo = collection.Photo,
+                    AssuranceObligatoire = collection.AssuranceObligatoire,
+                    isEnabled = collection.isEnabled,
+                    DisabledDate = collection.DisabledDate,
+                    Latitude = collection.Latitude,
+                    Longitude = collection.Longitude,
+                    idMembre = _service.Get(id).idMembre,
+                    DateCreation = _service.Get(id).DateCreation
+                };
+                this._service.Update(id,result);
+                return RedirectToAction(nameof(Index),"Home");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                ViewBag.Error = e.Message;
+                //riempio di nuovo il select:
+                IEnumerable<Pays> listPays = _serviceP.Get().Select(d => d.ToPays());
+                collection.PaysPossible = listPays;
+
+                return View(collection);
             }
         }
 

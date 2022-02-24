@@ -120,8 +120,9 @@ namespace HolidayRental.DAL.Repository
                 using (SqlCommand cmd = c.CreateCommand())
                 {
                     //VALUES((COALESCE((SELECT MAX(idClient) FROM [Client]),0)+1), 
-                    cmd.CommandText = "UPDATE [BienEchange] SET[titre] = @titre, [DescCourte] = @pDescr, [DescLong] = @lDescr,[NombrePerson] =@capacity,[Pays] = @pays,[Ville] = @ville,[Rue] = @rue,[Numero] = @nr,[CodePostal] = @zip,[Photo] =@photo,[AssuranceObligatoire] = @ass,[isEnabled] =@active,[DisabledDate] = @noDate,[Latitude] = @lat,[Longitude] = @long,[idMembre] = idM,[DateCreation] = @creation WHERE[idBien] = @id";
+                    cmd.CommandText = "UPDATE [BienEchange] SET[titre] = @titre, [DescCourte] = @pDescr, [DescLong] = @lDescr,[NombrePerson] =@capacity,[Pays] = @pays,[Ville] = @ville,[Rue] = @rue,[Numero] = @nr,[CodePostal] = @zip,[Photo] =@photo,[AssuranceObligatoire] = @ass,[isEnabled] =@active,[DisabledDate] = @noDate,[Latitude] = @lat,[Longitude] = @long WHERE[idBien] = @id";
 
+                    //no update di DateCreation idMembre
                     SqlParameter p_id = new SqlParameter("id", id);
                     SqlParameter p_titre = new SqlParameter("titre", entity.titre);
                     SqlParameter p_pDescre = new SqlParameter("pDescr", entity.DescCourte);
@@ -138,8 +139,6 @@ namespace HolidayRental.DAL.Repository
                     SqlParameter p_noDate = new SqlParameter("noDate", (object)entity.DisabledDate ?? DBNull.Value);
                     SqlParameter p_lat = new SqlParameter("lat", entity.Latitude);
                     SqlParameter p_long = new SqlParameter("long", entity.Longitude);
-                    SqlParameter p_idMembre = new SqlParameter("idM", entity.idMembre);
-                    SqlParameter p_creation = new SqlParameter("creation", entity.DateCreation);
 
                     cmd.Parameters.Add(p_id);
                     cmd.Parameters.Add(p_titre);
@@ -157,8 +156,6 @@ namespace HolidayRental.DAL.Repository
                     cmd.Parameters.Add(p_noDate);
                     cmd.Parameters.Add(p_lat);
                     cmd.Parameters.Add(p_long);
-                    cmd.Parameters.Add(p_idMembre);
-                    cmd.Parameters.Add(p_creation);
 
                     c.Open();
 

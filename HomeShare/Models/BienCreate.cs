@@ -38,7 +38,6 @@ namespace HoliDayRental.Models
 
         [Required]
         [DisplayName("Combien de personnes max: ")]
-        
         public int NombrePerson { get; set; }
 
         [ScaffoldColumn(false)]

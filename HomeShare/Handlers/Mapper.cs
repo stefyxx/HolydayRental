@@ -84,7 +84,7 @@ namespace HoliDayRental.Handlers
                 Latitude = bien.Latitude,
                 Longitude = bien.Longitude,
                 isEnabled = bien.isEnabled,
-                //controllare che non sie nullo
+                //NON sono da Update! ma sono da recuperare se non voglio errori in BLL->DAL
                 DateCreation = bien.DateCreation,
                 idMembre= bien.idMembre
             };
