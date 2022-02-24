@@ -78,6 +78,7 @@
     <Build Include="dbo\Stored Procedures\sp_RecupToutesInfosBien.sql" />
     <Build Include="dbo\Stored Procedures\sp_RecupBienDispo.sql" />
     <Build Include="dbo\Views\Vue_BiensParPaysNAME.sql" />
+    <Build Include="dbo\Views\Vue_Bien_Option_Pay.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

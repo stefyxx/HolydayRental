@@ -39,9 +39,16 @@ namespace HoliDayRental.Controllers
             */
 
             HomeIndex model = new HomeIndex();
-            model.BienList = _service.GetDernier5BienV().Select(bien => bien.ToListBien());
             model.Payses = _serviceP.Get().Select(p => p.ToPays());
-            model.BienList = model.BienList.Select(m => { m.PaysLibelle = _serviceP.Get((int)m.Pays).Libelle; return m; });
+
+            //NEL CAROSELLO: gli ultimi 5 inseriti
+            model.BienListDernier5 = _service.GetDernier5BienV().Select(bien => bien.ToListBien());
+            model.BienListDernier5 = model.BienListDernier5.Select(m => { m.PaysLibelle = _serviceP.Get((int)m.Pays).Libelle; return m; });
+
+            //NEL CORPO : i 5 migliori
+            model.BienListTopList = _service.GetMeilleurBienV().Select(b => b.ToListBien());
+
+
 
             return View(model);
         }        
