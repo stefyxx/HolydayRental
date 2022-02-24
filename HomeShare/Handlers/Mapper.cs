@@ -126,6 +126,45 @@ namespace HoliDayRental.Handlers
             };
         }
 
+        public static MembreLista ToListMembre(this HolidayRental.BLL.Models.Membre m)
+        {
+            if (m is null) return null;
+            return new MembreLista
+            {
+                idMembre = m.idMembre,
+                idPays= m.Pays,
+            };
+        }
 
+        public static MembreDetails ToDetailsMembre (this HolidayRental.BLL.Models.Membre m)
+        {
+            if (m is null) return null;
+            return new MembreDetails
+            {
+                idMembre=m.idMembre,
+                Nom=m.Nom,
+                Prenom=m.Prenom,
+                Email =m.Email,
+                Telephone =m.Telephone,
+                idPays =m.Pays
+            };
+
+        }
+
+        public static MembreCreate ToMembre(this HolidayRental.BLL.Models.Membre m)
+        {
+            if (m is null) return null;
+            return new MembreCreate
+            {
+                idMembre = m.idMembre,
+                Nom = m.Nom,
+                Prenom = m.Prenom,
+                Email = m.Email,
+                Telephone = m.Telephone,
+                idPays = m.Pays,
+                Login=m.Login,
+                Password =m.Password
+            };
+        }
     }
 }

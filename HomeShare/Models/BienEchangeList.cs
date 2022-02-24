@@ -26,7 +26,8 @@ namespace HoliDayRental.Models
         public int Pays { get; set; }
 
         [DisplayName("Pays européen: ")]
-        public string libellePays { get; set; }
+        public string PaysLibelle { get; set; }
+        //public string PaysLibelle { get { return this.Payses.Libelle; } }
 
         [DataType(DataType.ImageUrl)]
         public string Photo { get; set; }

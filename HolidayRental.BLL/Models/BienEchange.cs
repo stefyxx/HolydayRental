@@ -14,6 +14,7 @@ namespace HolidayRental.BLL.Models
 
         //id del pays!!!
         public int Pays { get; set; }
+        public Pays Nazione { get; set; }
 
         public string Ville { get; set; }
         public string Rue { get; set; }

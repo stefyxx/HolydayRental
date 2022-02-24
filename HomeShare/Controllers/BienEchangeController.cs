@@ -49,6 +49,11 @@ namespace HoliDayRental.Controllers
 
         public ActionResult Create()
         {
+            /*per il futuro: a modificare:
+            *perché posso creare un bene se LOGGATO
+            *posso affittare un bene se LOGGATO
+             -> idMembre recuperato in CreationMembre ... da sviluppare*/ 
+
             //label Pays
             //label idMembre
             //DateTime DateCreation = DateTime.Now;
@@ -66,6 +71,7 @@ namespace HoliDayRental.Controllers
             model.isEnabled = true;
 
             return View(model);
+
         }
 
         [HttpPost]
