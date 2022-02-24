@@ -49,6 +49,12 @@ namespace HoliDayRental
             services.AddScoped<IGetRepository<HolidayRental.DAL.Models.BienAvecNomPAYS>, HolidayRental.DAL.Repository.BienAvecNomPAYSservices>();
             services.AddScoped<IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS>, HolidayRental.BLL.Repository.BienAvecNomPAYSservices>();
 
+            services.AddScoped<IGetRepository<HolidayRental.DAL.Models.Options>, HolidayRental.DAL.Repository.OptionServices>();
+            services.AddScoped<IGetRepository<HolidayRental.BLL.Models.Options>, HolidayRental.BLL.Repository.OptionsServices>();
+
+            services.AddScoped<IGetRepositotyTwoInt<HolidayRental.DAL.Models.OptionsBien, int, int>, HolidayRental.DAL.Repository.OptionBienServices>();
+            services.AddScoped<IGetRepositotyTwoInt<HolidayRental.BLL.Models.OptionsBien, int, int>, HolidayRental.BLL.Repository.OptionBienServices>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

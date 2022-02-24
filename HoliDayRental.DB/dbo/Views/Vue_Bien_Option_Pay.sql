@@ -1,9 +1,8 @@
 ﻿CREATE VIEW [dbo].[Vue_Bien_Option_Pay]
 AS
-SELECT        dbo.Pays.idPays AS Expr1, dbo.Pays.Libelle AS Expr2, dbo.BienEchange.idBien AS Expr3, dbo.BienEchange.titre AS Expr4, dbo.BienEchange.DescCourte AS Expr5, dbo.BienEchange.DescLong, 
-                         dbo.BienEchange.NombrePerson, dbo.BienEchange.Pays, dbo.BienEchange.Ville, dbo.BienEchange.Rue, dbo.BienEchange.Numero, dbo.BienEchange.CodePostal, dbo.BienEchange.Photo, 
-                         dbo.BienEchange.AssuranceObligatoire, dbo.BienEchange.isEnabled, dbo.BienEchange.DisabledDate, dbo.BienEchange.Latitude, dbo.BienEchange.Longitude, dbo.BienEchange.idMembre, dbo.BienEchange.DateCreation, 
-                         dbo.OptionsBien.idOption AS Expr6, dbo.OptionsBien.idBien, dbo.OptionsBien.Valeur, dbo.Options.idOption, dbo.Options.Libelle
+SELECT        dbo.Pays.idPays, dbo.Pays.Libelle, dbo.BienEchange.idBien, dbo.BienEchange.titre, dbo.BienEchange.DescCourte, dbo.BienEchange.DescLong, dbo.BienEchange.NombrePerson, dbo.BienEchange.Ville, dbo.BienEchange.Rue,
+                          dbo.BienEchange.Numero, dbo.BienEchange.CodePostal, dbo.BienEchange.Photo, dbo.BienEchange.AssuranceObligatoire, dbo.BienEchange.isEnabled, dbo.BienEchange.DisabledDate, dbo.BienEchange.Latitude, 
+                         dbo.BienEchange.Longitude, dbo.BienEchange.idMembre, dbo.BienEchange.DateCreation, dbo.OptionsBien.Valeur, dbo.Options.idOption, dbo.Options.Libelle AS LibelleOption
 FROM            dbo.BienEchange INNER JOIN
                          dbo.OptionsBien ON dbo.BienEchange.idBien = dbo.OptionsBien.idBien INNER JOIN
                          dbo.Options ON dbo.OptionsBien.idOption = dbo.Options.idOption INNER JOIN
@@ -83,23 +82,13 @@ Begin DesignProperties =
       Begin Tables = 
          Begin Table = "BienEchange"
             Begin Extent = 
-               Top = 20
-               Left = 234
-               Bottom = 150
-               Right = 436
+               Top = 26
+               Left = 222
+               Bottom = 239
+               Right = 424
             End
             DisplayFlags = 280
-            TopColumn = 14
-         End
-         Begin Table = "Options"
-            Begin Extent = 
-               Top = 19
-               Left = 724
-               Bottom = 115
-               Right = 894
-            End
-            DisplayFlags = 280
-            TopColumn = 0
+            TopColumn = 9
          End
          Begin Table = "OptionsBien"
             Begin Extent = 
@@ -111,12 +100,22 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
+         Begin Table = "Options"
+            Begin Extent = 
+               Top = 105
+               Left = 727
+               Bottom = 201
+               Right = 897
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
          Begin Table = "Pays"
             Begin Extent = 
-               Top = 7
-               Left = 28
-               Bottom = 103
-               Right = 198
+               Top = 0
+               Left = 0
+               Bottom = 96
+               Right = 170
             End
             DisplayFlags = 280
             TopColumn = 0

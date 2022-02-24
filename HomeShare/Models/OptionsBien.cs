@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace HolidayRental.DAL.Models
+namespace HoliDayRental.Models
 {
     public class OptionsBien
     {
-        // legata a OptionsBien et BienEchange
-
-        //PK composte: idOption + idBien
         public int idOption { get; set; }
         public int idBien { get; set; }
-
-        //es: chiean admis -> "oui" opp. "petit chien"
         public string Valeur { get; set; }
     }
 }

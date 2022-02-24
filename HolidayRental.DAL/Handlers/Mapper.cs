@@ -77,6 +77,26 @@ namespace HolidayRental.DAL.Handlers
             };
         }
 
+        public static Options toOptions(IDataRecord record)
+        {
+            if (record is null) return null;
+            return new Options
+            {
+                idOption = (int)record[nameof(Options.idOption)],
+                Libelle = (string)record[nameof(Options.Libelle)],
+            };
+        }
+
+        public static OptionsBien toOptionsBien(IDataRecord record)
+        {
+            if (record is null) return null;
+            return new OptionsBien
+            {
+                idOption = (int)record[nameof(OptionsBien.idOption)],
+                idBien = (int)record[nameof(OptionsBien.idBien)],
+                Valeur = (string)record[nameof(OptionsBien.Valeur)],
+            };
+        }
 
         public static BienAvecNomPAYS ToBienAvecNomPAYS(IDataRecord record)
         {
@@ -103,6 +123,36 @@ namespace HolidayRental.DAL.Handlers
                 Longitude = (string)record[nameof(BienAvecNomPAYS.Longitude)],
                 idMembre = (int)record[nameof(BienAvecNomPAYS.idMembre)],
                 DateCreation = (DateTime)record[nameof(BienAvecNomPAYS.DateCreation)]
+            };
+        }
+
+        public static BienOptionPay ToBienOPTIONpay (IDataRecord record)
+        {
+            if (record is null) return null;
+            return new BienOptionPay
+            {
+                idPays = (int)record[nameof(BienOptionPay.idPays)],
+                Libelle = (string)record[nameof(BienOptionPay.Libelle)],
+                idBien = (int)record[nameof(BienOptionPay.idBien)],
+                titre = (string)record[nameof(BienOptionPay.titre)],
+                DescCourte = (string)record[nameof(BienOptionPay.DescCourte)],
+                DescLong = (string)record[nameof(BienOptionPay.DescLong)],
+                NombrePerson = (int)record[nameof(BienOptionPay.NombrePerson)],
+                Ville = (string)record[nameof(BienOptionPay.Ville)],
+                Rue = (string)record[nameof(BienOptionPay.Rue)],
+                Numero = (string)record[nameof(BienOptionPay.Numero)],
+                CodePostal = (string)record[nameof(BienOptionPay.CodePostal)],
+                Photo = (string)record[nameof(BienOptionPay.Photo)],
+                AssuranceObligatoire = (bool)record[nameof(BienOptionPay.AssuranceObligatoire)],
+                isEnabled = (bool)record[nameof(BienOptionPay.isEnabled)],
+                DisabledDate = (record[nameof(BienOptionPay.DisabledDate)] == DBNull.Value) ? null : (DateTime?)record[nameof(BienOptionPay.DisabledDate)],
+                Latitude = (string)record[nameof(BienOptionPay.Latitude)],
+                Longitude = (string)record[nameof(BienOptionPay.Longitude)],
+                idMembre = (int)record[nameof(BienOptionPay.idMembre)],
+                DateCreation = (DateTime)record[nameof(BienOptionPay.DateCreation)],
+                Valeur = (string)record[nameof(BienOptionPay.Valeur)],
+                idOption = (int)record[nameof(BienOptionPay.idOption)],
+                LibelleOption = (string)record[nameof(BienOptionPay.LibelleOption)],
             };
         }
     }

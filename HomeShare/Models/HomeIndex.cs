@@ -8,7 +8,7 @@ namespace HoliDayRental.Models
     public class HomeIndex
     {
         //nel corpo
-        public IEnumerable<BienEchangeList> BienListTopList { get; set; }
+        public IEnumerable<BienTop> BienListTopList { get; set; }
 
         //per il carosello
         public IEnumerable<BienEchangeList> BienListDernier5 { get; set; }
@@ -18,6 +18,7 @@ namespace HoliDayRental.Models
         public IEnumerable<MembreNomId> MembreList { get; set; }
 
         //NON mi serve la proprietà HomeController perché non c'é un model pre-ingettato nella view: infatti ho return View();
+
 
 
     }

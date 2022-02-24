@@ -132,6 +132,28 @@ namespace HoliDayRental.Handlers
             };
         }
 
+        public static BienTop TOPbien(this HolidayRental.BLL.Models.BienEchange bien)
+        {
+            if (bien is null) return null;
+            return new BienTop
+            {
+                idBien = bien.idBien,
+                titre = bien.titre,
+                Photo = bien.Photo,
+                AssuranceObligatoire = bien.AssuranceObligatoire
+            };
+        }
+
+        public static Option ToOption(this HolidayRental.BLL.Models.Options p)
+        {
+            if (p is null) return null;
+            return new Option
+            {
+                idOption = p.idOption,
+                Libelle = p.Libelle
+            };
+        }
+
         public static MembreNomId ToLabeMembre(this HolidayRental.BLL.Models.Membre m)
         {
             if (m is null) return null;

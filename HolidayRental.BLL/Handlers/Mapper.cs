@@ -101,6 +101,27 @@ namespace HolidayRental.BLL.Handlers
 
         // implementare ToDALL(Pays) all'occorrenza
 
+        public static HolidayRental.BLL.Models.Options ToBLL(this HolidayRental.DAL.Models.Options m)
+        {
+            if (m is null) return null;
+            return new HolidayRental.BLL.Models.Options
+            {
+                idOption = m.idOption,
+                Libelle = m.Libelle
+            };
+        }
+
+        public static HolidayRental.BLL.Models.OptionsBien ToBLL(this HolidayRental.DAL.Models.OptionsBien m)
+        {
+            if (m is null) return null;
+            return new HolidayRental.BLL.Models.OptionsBien
+            {
+                idOption = m.idOption,
+                idBien = m.idBien,
+                Valeur = m.Valeur
+            };
+        }
+
         public static HolidayRental.BLL.Models.BienAvecNomPAYS ToBLL(this HolidayRental.DAL.Models.BienAvecNomPAYS m)
         {
             if (m is null) return null;

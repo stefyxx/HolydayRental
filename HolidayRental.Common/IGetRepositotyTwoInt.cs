@@ -6,7 +6,7 @@ namespace HolidayRental.Common
 {
     public interface IGetRepositotyTwoInt<TEntity, Tint, T2int>
     {
-        TEntity Get(int id1, int id2 );
+        TEntity Get(int idOption, int idBien );
         IEnumerable<TEntity> Get();
     }
 }
