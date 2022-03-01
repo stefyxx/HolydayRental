@@ -17,12 +17,14 @@ namespace HoliDayRental.Controllers
         private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> _serviceP;
         private readonly IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> _serviceBP;
         //J'ai oublié les OPTIONS a ajouter aprés
-        public BienEchangeController(IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> serviceBP, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP, IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM)
+        private readonly IGetRepository<HolidayRental.BLL.Models.Options> _serviceO;
+        public BienEchangeController(IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IGetRepository<HolidayRental.BLL.Models.BienAvecNomPAYS> serviceBP, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP, IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM, IGetRepository<HolidayRental.BLL.Models.Options> serviceO)
         {
             this._service = service;
             this._serviceBP = serviceBP;
             this._serviceM = serviceM;
             this._serviceP = serviceP;
+            this._serviceO = serviceO;
         }
 
         public ActionResult Index()
@@ -216,6 +218,30 @@ namespace HoliDayRental.Controllers
         public ActionResult ViewOk()
         {
             return View();
+        }
+
+        public ActionResult Test()
+        {
+            IEnumerable<Option> options = _serviceO.Get().Select(o => o.ToOption());
+            testBien bene = new testBien();
+            bene.options = options;
+
+            return View(bene);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Test(testBien collection)
+        {
+            try
+            {
+                if (!ModelState.IsValid) throw new Exception();
+                return Json(collection);
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = e.Message;
+                return Json(e);
+            }
         }
     }
 }

@@ -25,11 +25,13 @@ namespace HoliDayRental.Models
         [DisplayName("Assuré ? : ")]
         public bool AssuranceObligatoire { get; set; }
 
-
+        
 
         [DisplayName("options: ")]
         public IEnumerable<Option> options { get; set; }
 
         public int idOption { get; set; }
+        public string valeurOptionBien { get; set; }
+
     }
 }
