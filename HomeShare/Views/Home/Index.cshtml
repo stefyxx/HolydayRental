@@ -1,76 +1,21 @@
-﻿@{
+﻿@model HoliDayRental.Models.HomeIndex;
+@using HoliDayRental.Handlers;
+
+
+@{
     ViewData["Title"] = SessionHelper.GetObjectFromJson<string>(Context.Session, "Titre");
 }
 
-<div class="">
+<div class="white">
 
 
     <div id="slider" class="sl-slider-wrapper">
 
-        <div class="sl-slider">
+        <!-- NEL CORPO : i 5 migliori  -->
 
-            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-1"></div>
-                    <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
-                        <cite>Echanger</cite>
-                    </blockquote>
-                </div>
-            </div>
+        @Html.Partial("_bienListTopList", Model.BienListTopList)
 
-            <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-2"></div>
-                    <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
-                        <cite>Echanger</cite>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-3"></div>
-                    <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
-                        <cite>Echanger</cite>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-4"></div>
-                    <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
-                        <cite>Echanger</cite>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-5"></div>
-                    <h2><a href="#">Une grande piscine et un magnifique jardin.</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Maison moderne et spacieuse entourée d'un jardin florissant</p>
-                        <cite>Echanger</cite>
-                    </blockquote>
-                </div>
-            </div>
-        </div><!-- /sl-slider -->
-
-
+        <!-- /sl-slider -->
 
         <nav id="nav-dots" class="nav-dots">
             <span class="nav-dot-current"></span>

@@ -55,6 +55,9 @@ namespace HoliDayRental
             services.AddScoped<IGetRepositotyTwoInt<HolidayRental.DAL.Models.OptionsBien, int, int>, HolidayRental.DAL.Repository.OptionBienServices>();
             services.AddScoped<IGetRepositotyTwoInt<HolidayRental.BLL.Models.OptionsBien, int, int>, HolidayRental.BLL.Repository.OptionBienServices>();
 
+            services.AddScoped<IRepoOptionsONEbien<HolidayRental.DAL.Models.OptionsBienWithLabel_forONEBien>, HolidayRental.DAL.Repository.OptionsBienWithLabel_forONEBienServices>();
+            services.AddScoped<IRepoOptionsONEbien<HolidayRental.BLL.Models.OptionsBienWithLabel_forONEBien>, HolidayRental.BLL.Repository.OptionsBienWithLabel_forONEBienServices>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

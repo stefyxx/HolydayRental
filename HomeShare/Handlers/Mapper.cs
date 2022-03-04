@@ -1,4 +1,5 @@
 ﻿using HoliDayRental.Models;
+using HoliDayRental.Models.BienOptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -140,7 +141,40 @@ namespace HoliDayRental.Handlers
                 idBien = bien.idBien,
                 titre = bien.titre,
                 Photo = bien.Photo,
-                AssuranceObligatoire = bien.AssuranceObligatoire
+                CodePostal = bien.CodePostal,
+                Ville = bien.Ville,
+                Pays = bien.Pays,
+                DescCourte = bien.DescCourte
+            };
+        }
+        public static ONEoptionsForONEbien ToOptionsForONEbien(this HolidayRental.BLL.Models.OptionsBienWithLabel_forONEBien bop)
+        {
+            if (bop is null) return null;
+            return new ONEoptionsForONEbien
+            {
+                idBien = bop.idBien,
+                idOption = bop.idOption,
+                Libelle = bop.Libelle,
+                Valeur = bop.Valeur
+            };
+        }
+
+        public static BienOptionsDetails ToBienDet(this HolidayRental.BLL.Models.BienEchange bien)
+        {
+            if (bien is null) return null;
+            return new BienOptionsDetails
+            {
+                idBien = bien.idBien,
+                Photo = bien.Photo,
+                DescCourte = bien.DescCourte,
+                DescLong = bien.DescLong,
+                NombrePerson = bien.NombrePerson,
+                idPays = bien.Pays,
+                Ville = bien.Ville,
+                Rue = bien.Rue,
+                Numero = bien.Numero,
+                CodePostal = bien.CodePostal,
+                AssuranceObligatoire = bien.AssuranceObligatoire,
             };
         }
 

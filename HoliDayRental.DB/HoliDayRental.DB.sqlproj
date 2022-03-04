@@ -79,6 +79,7 @@
     <Build Include="dbo\Stored Procedures\sp_RecupBienDispo.sql" />
     <Build Include="dbo\Views\Vue_BiensParPaysNAME.sql" />
     <Build Include="dbo\Views\Vue_Bien_Option_Pay.sql" />
+    <Build Include="dbo\Stored Procedures\sp_Options_for_ONE_Bien_With_Libelle_ET_Valeur.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

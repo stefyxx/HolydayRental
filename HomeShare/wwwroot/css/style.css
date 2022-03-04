@@ -22,6 +22,10 @@ h6 span{margin-right: 5px; font-size: 12px;}
     vertical-align: middle;
 }
 
+.white a {
+    color: white;
+}
+
 p{margin-bottom: 30px;}
 a{color:#72b70f; text-decoration:none;outline: none;}
 a:hover{color:#333;}

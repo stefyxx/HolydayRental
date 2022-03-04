@@ -1,0 +1,22 @@
+﻿@model IEnumerable<HoliDayRental.Models.BienTop>;
+
+<div class="sl-slider">
+
+    @foreach (var item in Model)
+    {
+        <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+            <div class="sl-slide-inner">
+                <div class="bg-img bg-img-1">
+                    <img class="imgList" src="@string.Concat("/images/assets/", item.Photo)" style="width:max-content;" />
+                </div>
+                <h2>@Html.ActionLink(@item.titre, "Details", "BienOption", new { id = item.idBien })</h2>
+                <blockquote>
+                    <p class="location"><span class="glyphicon glyphicon-map-marker"></span> @item.CodePostal @item.Ville, @item.payses.Libelle </p>
+                    <p>@item.DescCourte</p>
+                    <cite class="white">@Html.ActionLink("Échanger", "Details", "BienOption", new { id = item.idBien })</cite>
+                </blockquote>
+            </div>
+        </div>
+    }
+
+</div>

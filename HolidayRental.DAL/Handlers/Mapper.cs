@@ -126,6 +126,18 @@ namespace HolidayRental.DAL.Handlers
             };
         }
 
+        public static OptionsBienWithLabel_forONEBien ToOptionsForONEBien(IDataRecord record)
+        {
+            if (record is null) return null;
+            return new OptionsBienWithLabel_forONEBien
+            {
+                idBien = (int)record[nameof(OptionsBienWithLabel_forONEBien.idBien)],
+                idOption = (int)record[nameof(OptionsBienWithLabel_forONEBien.idOption)],
+                Libelle = (string)record[nameof(OptionsBienWithLabel_forONEBien.Libelle)],
+                Valeur = (string)record[nameof(OptionsBienWithLabel_forONEBien.Valeur)],
+            };
+        }
+
         public static BienOptionPay ToBienOPTIONpay (IDataRecord record)
         {
             if (record is null) return null;

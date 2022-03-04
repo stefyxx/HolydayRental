@@ -147,5 +147,17 @@ namespace HolidayRental.BLL.Handlers
                 DateCreation = m.DateCreation
             };
         }
+
+        public static HolidayRental.BLL.Models.OptionsBienWithLabel_forONEBien ToBLL(this HolidayRental.DAL.Models.OptionsBienWithLabel_forONEBien bop)
+        {
+            if (bop is null) return null;
+            return new HolidayRental.BLL.Models.OptionsBienWithLabel_forONEBien
+            {
+                idBien = bop.idBien,
+                idOption = bop.idOption,
+                Libelle = bop.Libelle,
+                Valeur = bop.Valeur
+            };
+        }
     }
 }
