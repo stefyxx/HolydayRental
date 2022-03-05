@@ -17,7 +17,7 @@ namespace HoliDayRental.Handlers
                 idBien = bien.idBien,
                 titre= bien.titre,
                 Photo = bien.Photo,
-                AssuranceObligatoire = bien.
+                AssuranceObligatoire = bien.AssuranceObligatoire
             };
         }
 

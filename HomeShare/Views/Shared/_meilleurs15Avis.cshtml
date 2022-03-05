@@ -5,8 +5,12 @@
 {
     <div class="properties">
         <div class="image-holder">
-            <img src="/images/properties/1.jpg" class="img-responsive" alt="properties" />
-            <div class="status sold">@item.mot</div>
+            <img src="@string.Concat( "/images/assets/",item.Photo)" class="img-responsive" alt="properties" />
+            @if (@item.mot == "Pépite" || @item.mot == "Sold")
+            { <div class="status sold">@item.mot</div>}
+            else if (@item.mot == "New")
+            { <div class="status new">@item.mot</div>}
+            else{ }
         </div>
         <h4>@Html.ActionLink(@item.DescCourte, "Details", "BienOption", new { id = item.idBien })</h4>
         <p class="price">A l'échange: €5</p>

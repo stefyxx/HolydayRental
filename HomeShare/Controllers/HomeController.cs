@@ -58,6 +58,8 @@ namespace HoliDayRental.Controllers
                  bien.options = (IEnumerable<ONEoptionsForONEbien>)_serviceAllOptionsONEbien.AllOptionsForONEBien((int)bien.idBien).Select(opt => opt.ToOptionsForONEbien());
                  return bien;
              });
+
+            //per riempire forfettariamente la parola sotto la foto
             model.BienMeilleurs15Avis = model.BienMeilleurs15Avis.Select(bien =>
             {
                 bien.mot = mots[random.Next(mots.Count - 1)];

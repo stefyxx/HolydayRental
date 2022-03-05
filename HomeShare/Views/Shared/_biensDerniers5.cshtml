@@ -1,25 +1,43 @@
-﻿@model HoliDayRental.Models.BienLastFive;
+﻿@model IEnumerable<HoliDayRental.Models.BienLastFive>;
+@using System;
+@using System.Linq;
 
-
-    <div class="item active">
-    <div class="row">
-        <div class="col-lg-4"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties" /></div>
-        <div class="col-lg-8">
-            <h5><a href="#">Integer sed porta quam</a></h5>
-            <p class="price">€25</p>
-            <a href="#" class="more">Plus d'infos...</a>
-        </div>
-    </div>
-    </div>
-
-    <div class="item">
-        <div class="row">
-            <div class="col-lg-4"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties" /></div>
-            <div class="col-lg-8">
-                <h5><a href="#">Integer sed porta quam</a></h5>
-                <p class="price">€25</p>
-                <a href="#" class="more">Plus d'infos...</a>
+@for (int i = 0; i < Model.Count(); i++)
+{
+    if (i == 0)
+    {
+        <div class="item active">
+            <div class="row">
+                <div class="col-lg-4"><img src="@string.Concat("/images/properties/", i+1 , ".jpg")" class="img-responsive" alt="properties" /></div>
+                <div class="col-lg-8">
+                    <h5>@Html.ActionLink(Model.ToArray()[i].titre, "Details", "BienOption", new { id = @Model.ToArray()[i].idBien });</h5>
+                    @if (Model.ToArray()[i].AssuranceObligatoire == true)
+                    {<p class="price">€5 + €10 par jour</p>}
+                    else
+                    { <p class="price">€5</p>}
+                    @Html.ActionLink("Lire plus...", "Details", "BienOption", new { id = @Model.ToArray()[i].idBien }, new { @class = "more" })
+                </div>
             </div>
         </div>
-    </div>
+        //@Model.Select(t => t.titre).ToArray()[i]
+    }
+    else
+    {
+        <div class="item">
+            <div class="row">
+                <div class="col-lg-4"><img src="@string.Concat("/images/properties/", i+1 , ".jpg")" class="img-responsive" alt="properties" /></div>
+                <div class="col-lg-8">
+                    <h5>@Html.ActionLink(Model.ToArray()[i].titre, "Details", "BienOption", new { id = @Model.ToArray()[i].idBien });</h5>
+                    @if (Model.ToArray()[i].AssuranceObligatoire == true)
+                    {<p class="price">€5 + €10 par jour</p>}
+                    else
+                    { <p class="price">€5</p>}
+                    @Html.ActionLink("Lire plus...", "Details", "BienOption", new { id = @Model.ToArray()[i].idBien }, new { @class = "more" })
+                </div>
+            </div>
+        </div>
+    }
+
+}
+
 

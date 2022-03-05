@@ -91,8 +91,6 @@
             <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
             <a class="btn btn-primary" href="#">Détails</a>
         </div>
-
-
         <div class="properties">
             <div class="image-holder">
                 <img src="/images/properties/2.jpg" class="img-responsive" alt="properties" />
@@ -104,7 +102,8 @@
             <a class="btn btn-primary" href="#">Détails...</a>
         </div>
         <div class="properties">
-            <div class="image-holder"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
+            <div class="image-holder">
+                <img src="/images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
             <h4><a href="#">Royal Inn</a></h4>
             <p class="price">Caution : €25</p>
             <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> </div>
@@ -198,46 +197,58 @@
                         </ol>
                         <!-- Carousel items -->
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="row">
-                                    <div class="col-lg-4"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties" /></div>
-                                    <div class="col-lg-8">
-                                        <h5><a href="#">Integer sed porta quam</a></h5>
-                                        <p class="price">€25</p>
-                                        <a href="#" class="more">Plus d'infos...</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-lg-4"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties" /></div>
-                                    <div class="col-lg-8">
-                                        <h5><a href="#">Integer sed porta quam</a></h5>
-                                        <p class="price">€25</p>
-                                        <a href="#" class="more">Plus d'infos...</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-lg-4"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
-                                    <div class="col-lg-8">
-                                        <h5><a href="#">Integer sed porta quam</a></h5>
-                                        <p class="price">€25</p>
-                                        <a href="#" class="more">Plus d'infos...</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-lg-4"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties" /></div>
-                                    <div class="col-lg-8">
-                                        <h5><a href="#">Integer sed porta quam</a></h5>
-                                        <p class="price">€25</p>
-                                        <a href="#" class="more">Plus d'infos...</a>
-                                    </div>
-                                </div>
-                            </div>
+                        @Html.Partial("_biensDerniers5", Model.BiensDerniers5);
+                            <!--    <div class="item active">
+        <div class="row">
+            <div class="col-lg-4"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties" /></div>
+            <div class="col-lg-8">
+                <h5><a href="#">Integer sed porta quam</a></h5>
+                <p class="price">€25</p>
+                <a href="#" class="more">Plus d'infos...</a>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <div class="col-lg-4"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties" /></div>
+            <div class="col-lg-8">
+                <h5><a href="#">Integer sed porta quam</a></h5>
+                <p class="price">€25</p>
+                <a href="#" class="more">Plus d'infos...</a>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <div class="col-lg-4"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
+            <div class="col-lg-8">
+                <h5><a href="#">Integer sed porta quam</a></h5>
+                <p class="price">€25</p>
+                <a href="#" class="more">Plus d'infos...</a>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <div class="col-lg-4"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties" /></div>
+            <div class="col-lg-8">
+                <h5><a href="#">Integer sed porta quam</a></h5>
+                <p class="price">€25</p>
+                <a href="#" class="more">Plus d'infos...</a>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="row">
+            <div class="col-lg-4"><img src="/images/properties/5.jpg" class="img-responsive" alt="properties" /></div>
+            <div class="col-lg-8">
+                <h5><a href="#">Integer sed porta quam</a></h5>
+                <p class="price">€25</p>
+                <a href="#" class="more">Plus d'infos...</a>
+            </div>
+        </div>
+    </div>
+        -->
                         </div>
                     </div>
                 </div>
