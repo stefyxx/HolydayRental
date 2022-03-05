@@ -1,6 +1,34 @@
-﻿<!-- Modal -->
+﻿@model HoliDayRental.Models.MembreCreate;
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-<div id="loginpop" >
+@if (!ViewContext.ModelState.IsValid)
+{
+    <div>
+        <span style="color:red">
+            Le formulaire contient @ViewContext.ModelState.ErrorCount erreur(s)
+        </span><br />
+
+        @foreach (KeyValuePair<string, ModelStateEntry> kvp in ViewContext.ModelState)
+        {
+            if (kvp.Value.Errors.Count() > 0)
+            {
+                foreach (ModelError modelError in kvp.Value.Errors)
+                {
+                    <span style="color:red">
+                        @kvp.Key : @modelError.ErrorMessage
+                    </span><br />
+                }
+            }
+        }
+    </div>
+}
+
+
+
+
+<!-- Modal -->
+
+<div id="loginpop">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="row">
@@ -8,37 +36,72 @@
                     <h4>Enregistrez-vous</h4>
                     <form class="" role="form">
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputNom">Nom</label>
-                            <input type="text" class="form-control" id="exampleInputNom" placeholder="Smith">
+                            <label class="sr-only" for="Nom">Nom</label>
+                            <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Smith">
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputPrenom">Prenom</label>
-                            <input type="text" class="form-control" id="exampleInputPrenom" placeholder="Jhon">
+                            <label class="sr-only" for="Prenom">Prenom</label>
+                            <input type="text" class="form-control" id="Prenom" name="Prenom" placeholder="Jhon">
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail2">E-mail</label>
-                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jhon@example.com">
+                            <label class="sr-only" for="Email">E-mail</label>
+                            <input type="email" class="form-control" id="Email" name="Email" placeholder="jhon@example.com">
                         </div>
+
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputTel">Téléphone</label>
-                            <input type="text" class="form-control" id="exampleInputTel" placeholder="555-563698">
+                            <select name="idPays">
+                                <option>Selectionner votre Pays</option>
+                                @foreach (Pays item in Model.Payses)
+                                {
+                                    <option value="@item.idPays">@item.Libelle</option>
+                                }
+                            </select>
                         </div>
+
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputPassword2">Mot de passe</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe">
+                            <label class="sr-only" for="Telephone">Téléphone</label>
+                            <input type="text" class="form-control" id="Telephone" name="Telephone" placeholder="555-563698">
+                        </div>
+
+                        <!--Login ha una lunghezza di nvarchar(50) => NON PUO' ESSERE LA MAIL'-->
+                        @*<div class="form-group">
+            <label class="sr-only" for="Login">Votre login sera: </label>
+            @if (string.IsNullOrWhiteSpace(this.Model.Prenom) || string.IsNullOrWhiteSpace(this.Model.Nom)) throw new FormatException();
+            else //prendo del cognome solo i primi 5 caratteri e se mi chiamo 'DE Castro' prendera xde.ca (dove x é la prima lettera del Prenom)
+            {
+                <p id="Login" name="Login">@string.Concat(this.Model.Prenom.Substring(0, 1), this.Model.Nom.Substring(0, 5).Replace(' ', '.'))</p>
+
+            }
+        </div>*@
+
+                        <div class="form-group">
+                            <label class="sr-only" for="Password">Mot de passe</label>
+                            <input type="password" class="form-control" id="Password" name="Password" placeholder="Mot de passe">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputPassword2">Répétez le Mot de passe</label>
                             <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Répétez le Mot de passe">
                         </div>
+
+
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox"> J'accepte les <a href="./Home/conditions">condition générale du site</a>
+                                <input type="checkbox"> Valider l'inscription <a href="./Home/conditions">condition générale du site</a>
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-success">Connexion</button>
+
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="isValide" /> @Html.DisplayNameFor(model => model.isValide)
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Connexion" class="btn btn-success" />
+                        </div>
+                        @*<button type="submit" class="btn btn-success">Connexion</button>*@
                     </form>
-                </div>
+            </div>
             </div>
         </div>
     </div>

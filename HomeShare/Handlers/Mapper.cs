@@ -9,17 +9,15 @@ namespace HoliDayRental.Handlers
 {
     public static class Mapper
     {
-        public static BienEchangeList ToListBien(this HolidayRental.BLL.Models.BienEchange bien)
+        public static BienLastFive ToLastFiveBien(this HolidayRental.BLL.Models.BienEchange bien)
         {
             if (bien is null) return null;
-            return new BienEchangeList
+            return new BienLastFive
             {
                 idBien = bien.idBien,
                 titre= bien.titre,
-                DescCourte = bien.DescCourte,
-                NombrePerson = bien.NombrePerson,
-                Pays = bien.Pays,
-                Photo = bien.Photo
+                Photo = bien.Photo,
+                AssuranceObligatoire = bien.
             };
         }
 
@@ -133,10 +131,10 @@ namespace HoliDayRental.Handlers
             };
         }
 
-        public static BienTop TOPbien(this HolidayRental.BLL.Models.BienEchange bien)
+        public static BienListHome TOPbien(this HolidayRental.BLL.Models.BienEchange bien)
         {
             if (bien is null) return null;
-            return new BienTop
+            return new BienListHome
             {
                 idBien = bien.idBien,
                 titre = bien.titre,
@@ -188,24 +186,17 @@ namespace HoliDayRental.Handlers
             };
         }
 
+
+        #region Membre
         public static MembreNomId ToLabeMembre(this HolidayRental.BLL.Models.Membre m)
         {
             if (m is null) return null;
             return new MembreNomId
             {
-                idMembre=m.idMembre,
-                Nom=m.Nom,
-                Prenom =m.Prenom
-            };
-        }
-
-        public static MembreLista ToListMembre(this HolidayRental.BLL.Models.Membre m)
-        {
-            if (m is null) return null;
-            return new MembreLista
-            {
                 idMembre = m.idMembre,
-                idPays= m.Pays,
+                Nom = m.Nom,
+                Prenom = m.Prenom,
+                idPays = m.Pays
             };
         }
 
@@ -235,9 +226,9 @@ namespace HoliDayRental.Handlers
                 Email = m.Email,
                 Telephone = m.Telephone,
                 idPays = m.Pays,
-                Login=m.Login,
                 Password =m.Password
             };
         }
+        #endregion
     }
 }

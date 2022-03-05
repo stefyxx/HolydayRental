@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HoliDayRental.Models.BienOptions.BienOptionsDetails>;
+
+
+@foreach (var item in Model)
+{
+    <div class="properties">
+        <div class="image-holder">
+            <img src="/images/properties/1.jpg" class="img-responsive" alt="properties" />
+            <div class="status sold">@item.mot</div>
+        </div>
+        <h4>@Html.ActionLink(@item.DescCourte, "Details", "BienOption", new { id = item.idBien })</h4>
+        <p class="price">A l'échange: €5</p>
+        @if (item.AssuranceObligatoire == true)
+        {
+            <p class="price">Caution: 10€ par jour</p>
+        }
+        else
+        {
+            <p class="price">Caution: NO </p>
+        }
+        <div class="listing-detail">
+            @foreach (var opt in item.options)
+            {
+                @if (opt.idOption == 2)
+                {
+                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="@opt.Libelle">
+                        <img src="~/images/icones/lavelinge.png" width="25" />
+                    </span>
+                }
+                else if (opt.idOption == 3)
+                {
+                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="@opt.Libelle">
+                        <img src="~/images/icones/lavevaisselle.png" width="25" />
+                    </span> }
+                else
+                {
+                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="@opt.Libelle">
+                        <img src="@string.Concat("/images/icones/", @opt.Libelle.ToLower().ToString().Split(' ')[0], ".png")" width="25" />
+                    </span>
+                }
+
+            }
+        </div>
+        @Html.ActionLink("Détails", "Details", "BienOption", new { id = item.idBien }, new { @class = "btn btn-primary" })
+    </div>
+
+
+}

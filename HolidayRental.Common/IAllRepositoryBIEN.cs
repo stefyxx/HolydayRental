@@ -9,8 +9,10 @@ namespace HolidayRental.Common
         IEnumerable<TEntity> GetLibreSP(DateTime dateDebut, DateTime dateFin);
         IEnumerable<TEntity> GetAllBiensParMembreSP(int idMembro);
         IEnumerable<TEntity> GetMeilleurBienV();
+        IEnumerable<TEntity> GetMeilleur15BienV();
         IEnumerable<TEntity> GetDernier5BienV();
         IEnumerable<TEntity> GetBienParPaysV();
+
 
     }
 }

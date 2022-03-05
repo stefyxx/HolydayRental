@@ -1,17 +1,20 @@
-﻿using System;
+﻿using HoliDayRental.Models.BienOptions;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace HoliDayRental.Models
 {
     public class HomeIndex
     {
         //nel corpo
-        public IEnumerable<BienTop> BienListTopList { get; set; }
+        public IEnumerable<BienListHome> BienList { get; set; }
 
         //per il carosello
-        public IEnumerable<BienEchangeList> BienListDernier5 { get; set; }
+        public IEnumerable<BienOptionsDetails> BienMeilleurs15Avis { get; set; }
+
+        //nel piede
+        public IEnumerable<BienLastFive> BiensDerniers5 { get; set; }
+
 
         //NON mi serve la proprietà HomeController perché non c'é un model pre-ingettato nella view: infatti ho return View();
     }

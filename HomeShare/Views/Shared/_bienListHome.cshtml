@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HoliDayRental.Models.BienTop>;
+﻿@model IEnumerable<HoliDayRental.Models.BienListHome>;
 
 <div class="sl-slider">
 
@@ -13,7 +13,7 @@
                 <blockquote>
                     <p class="location"><span class="glyphicon glyphicon-map-marker"></span> @item.CodePostal @item.Ville, @item.payses.Libelle </p>
                     <p>@item.DescCourte</p>
-                    <cite class="white">@Html.ActionLink("Échanger", "Details", "BienOption", new { id = item.idBien })</cite>
+                    <cite class="white">@Html.ActionLink("Échangez moi", "Details", "BienOption", new { id = item.idBien })</cite>
                 </blockquote>
             </div>
         </div>

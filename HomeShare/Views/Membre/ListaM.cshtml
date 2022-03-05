@@ -1,0 +1,52 @@
+﻿@model IEnumerable<HoliDayRental.Models.MembreNomId>
+
+@{
+    ViewData["Title"] = "ListaM";
+}
+
+<div style="margin-left:10%; margin-right:10%; height:100%;">
+    <div style="height:100%;">
+        <h2>Les propriétaires</h2>
+
+        <p>
+            <a asp-action="Create">Enregistrez-vous!</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prenom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NomPays)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prenom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NomPays)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

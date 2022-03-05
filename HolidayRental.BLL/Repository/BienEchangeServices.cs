@@ -42,28 +42,35 @@ namespace HolidayRental.BLL.Repository
 
         public IEnumerable<BienEchange> GetLibreSP(DateTime dateDebut, DateTime dateFin)
         {
-            return _repository.Get().Select(d => d.ToBLL());
+            return _repository.GetLibreSP(dateDebut, dateFin).Select(d => d.ToBLL());
         }
 
         public IEnumerable<BienEchange> GetAllBiensParMembreSP(int idMembro)
         {
-            return _repository.Get().Select(d => d.ToBLL());
+            return _repository.GetAllBiensParMembreSP(idMembro).Select(d => d.ToBLL());
         }
 
         public IEnumerable<BienEchange> GetMeilleurBienV()
         {
-            return _repository.Get().Select(d => d.ToBLL());
+            return _repository.GetMeilleurBienV().Select(d => d.ToBLL());
+        }
+
+        public IEnumerable<BienEchange> GetMeilleur15BienV()
+        {
+            return _repository.GetMeilleur15BienV().Select(d => d.ToBLL());
         }
 
         public IEnumerable<BienEchange> GetDernier5BienV()
         {
-            return _repository.Get().Select(d => d.ToBLL());
+            return _repository.GetDernier5BienV().Select(d => d.ToBLL());
         }
 
         public IEnumerable<BienEchange> GetBienParPaysV()
         {
-            return _repository.Get().Select(d => d.ToBLL());
+            return _repository.GetBienParPaysV().Select(d => d.ToBLL());
         }
+
+
 
         //per usare sp_recupToutesInfosBien DEVO creare un'entity ad OK
     }

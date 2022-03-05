@@ -29,12 +29,14 @@ namespace HoliDayRental.Controllers
             return RedirectToAction("ListaM");
         }
 
-        public ActionResult ListaM() //COMPLETARE MAPPER
+        public ActionResult ListaM()
         {
             try
             {
-                IEnumerable<MembreLista> listaMembri = _serviceM.Get().Select(m => m.ToListMembre());
+                IEnumerable<MembreNomId> listaMembri = _serviceM.Get().Select(m => m.ToLabeMembre());
+
                 listaMembri = listaMembri.Select(m => { m.Pays = _serviceP.Get((int)m.idPays).ToPays(); return m; });
+
                 return View(listaMembri);
             }
             catch (Exception e)
@@ -57,8 +59,9 @@ namespace HoliDayRental.Controllers
         public ActionResult Create()
         {
             MembreCreate model = new MembreCreate();
-            model.Payses = _serviceP.Get().Select(p => p.ToPays()); 
+            model.Payses = _serviceP.Get().Select(p => p.ToPays());
             return View(model);
+            //return RedirectToAction("Register", "Account");
         }
 
         [HttpPost]

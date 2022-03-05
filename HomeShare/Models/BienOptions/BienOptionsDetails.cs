@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace HoliDayRental.Models.BienOptions
 {
@@ -40,5 +38,8 @@ namespace HoliDayRental.Models.BienOptions
         //lista di opzioni con Libelle et Valeur -> sp_
         [DisplayName("Options : ")]
         public IEnumerable<ONEoptionsForONEbien> options { get; set; }
+
+        //per Home, piccola parola sotto la foto
+        public string mot { get; set; }
     }
 }

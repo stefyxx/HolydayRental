@@ -66,7 +66,7 @@
 
                         </li> 
                         <li><a href="#">A propos de nous</a></li>
-                        <li><a href="#">Les propriétaires</a></li>
+                        <li class="active">@Html.ActionLink("Les propriétaires", "Index", "Membre")</li>
                         <li class="active">
                             @Html.ActionLink("Les biens échangés", "Index", "BienEchange");
                         </li>
@@ -98,7 +98,7 @@
                     @Html.ActionLink("Visiter", "Index", "BienEchange");
                 </li>
                 <li><a href="#">Echanger</a></li>
-                <li><a href="#">S'enregistrer</a></li>
+                <li>@Html.ActionLink("S'enregistrer", "Register", "Account");</li>
             </ul>
         </div>
         <!-- #Header Starts -->
@@ -118,7 +118,7 @@
                         <li class="col-lg-12 col-sm-12 col-xs-3"><a href="#">Rechercher</a></li>
                         <li class="col-lg-12 col-sm-12 col-xs-3"><a href="#">Visiter</a></li>
                         <li class="col-lg-12 col-sm-12 col-xs-3"><a href="#">Echanger</a></li>
-                        <li class="col-lg-12 col-sm-12 col-xs-3"><a href="#">S'enregistrer</a></li>
+                        <li class="col-lg-12 col-sm-12 col-xs-3">@Html.ActionLink("S'enregistrer", "Register", "Account")</li>
                     </ul>
                 </div>
 

@@ -11,18 +11,19 @@
 
     <div id="slider" class="sl-slider-wrapper">
 
-        <!-- NEL CORPO : i 5 migliori  -->
+        <!-- NEL CORPO : ista di tutti i beni  -->
 
-        @Html.Partial("_bienListTopList", Model.BienListTopList)
+        @Html.Partial("_bienListHome", Model.BienList)
 
         <!-- /sl-slider -->
 
+        <!-- SONO 5 OOOOO qui' ho lista beni, se sono di più fare foreach -->
         <nav id="nav-dots" class="nav-dots">
             <span class="nav-dot-current"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            @for (int i = 0; i < Model.BienList.Count() - 1; i++)
+            {
+                <span></span>
+            }
         </nav>
 
     </div><!-- /slider-wrapper -->
@@ -67,107 +68,115 @@
             </div>
         </div>
     </div>
+
+
     <!-- banner -->
     <div class="container">
         <div class="properties-listing spacer">
             @Html.ActionLink("Voir tout", "Index", "BienEchange");
             <h2>Les meilleurs échanges</h2> @*for 15  partial view*@
 
-            <div id="owl-example" class="owl-carousel">
-                <div class="properties">
-                    <div class="image-holder">
-                        <img src="/images/properties/1.jpg" class="img-responsive" alt="properties" />
-                        <div class="status sold">Pépite</div>
-                    </div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder">
-                        <img src="/images/properties/2.jpg" class="img-responsive" alt="properties" />
-                        <div class="status new">New</div>
-                    </div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties" /></div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder">
-                        <img src="/images/properties/1.jpg" class="img-responsive" alt="properties" />
-                        <div class="status sold">Pépite</div>
-                    </div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder">
-                        <img src="/images/properties/2.jpg" class="img-responsive" alt="properties" />
-                        <div class="status sold">Sold</div>
-                    </div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder">
-                        <img src="/images/properties/3.jpg" class="img-responsive" alt="properties" />
-                        <div class="status new">New</div>
-                    </div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties" /></div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties" /></div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties" /></div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
-                <div class="properties">
-                    <div class="image-holder"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
-                    <h4><a href="#">Royal Inn</a></h4>
-                    <p class="price">Caution : €25</p>
-                    <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                    <a class="btn btn-primary" href="#">Détails...</a>
-                </div>
+            @*NEL CAROSELLO:i 15 migliori*@
 
+        <div id="owl-example" class="owl-carousel">
+            @Html.Partial("_meilleurs15Avis", Model.BienMeilleurs15Avis);
+            <!--
+        <div class="properties">
+            <div class="image-holder">
+                <img src="/images/properties/1.jpg" class="img-responsive" alt="properties" />
+                <div class="status sold">Pépite</div>
             </div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails</a>
+        </div>
+
+
+        <div class="properties">
+            <div class="image-holder">
+                <img src="/images/properties/2.jpg" class="img-responsive" alt="properties" />
+                <div class="status new">New</div>
+            </div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties" /></div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder">
+                <img src="/images/properties/1.jpg" class="img-responsive" alt="properties" />
+                <div class="status sold">Pépite</div>
+            </div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder">
+                <img src="/images/properties/2.jpg" class="img-responsive" alt="properties" />
+                <div class="status sold">Sold</div>
+            </div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Salon"><img src="/images/icones/salon.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder">
+                <img src="/images/properties/3.jpg" class="img-responsive" alt="properties" />
+                <div class="status new">New</div>
+            </div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder"><img src="/images/properties/4.jpg" class="img-responsive" alt="properties" /></div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Barbecue"><img src="/images/icones/grill-barbecue.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Piscine"><img src="/images/icones/piscine.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder"><img src="/images/properties/1.jpg" class="img-responsive" alt="properties" /></div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Chiens admis"><img src="/images/icones/chien.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Lit double"><img src="/images/icones/chambre.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><img src="/images/icones/parking.png" width="25" /></span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cuisine"><img src="/images/icones/ustensiles-de-cuisine.png" width="25" /></span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder"><img src="/images/properties/2.jpg" class="img-responsive" alt="properties" /></div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        <div class="properties">
+            <div class="image-holder"><img src="/images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
+            <h4><a href="#">Royal Inn</a></h4>
+            <p class="price">Caution : €25</p>
+            <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
+            <a class="btn btn-primary" href="#">Détails...</a>
+        </div>
+        -->
+        </div>
 
         </div>
         <div class="spacer">
@@ -178,13 +187,14 @@
 
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-3 recommended">
-                    <h3>Propriétés phares</h3>
+                    <h3>Les derniers bien en échange</h3>
                     <div id="myCarousel" class="carousel slide">
                         <ol class="carousel-indicators">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                             <li data-target="#myCarousel" data-slide-to="1" class=""></li>
                             <li data-target="#myCarousel" data-slide-to="2" class=""></li>
                             <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+                            <li data-target="#myCarousel" data-slide-to="4" class=""></li>
                         </ol>
                         <!-- Carousel items -->
                         <div class="carousel-inner">

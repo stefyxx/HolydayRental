@@ -29,7 +29,7 @@ namespace HoliDayRental.Controllers
 
         public ActionResult Index()
         {
-            //IEnumerable<BienEchangeList> model = this._service.Get().Select(bien => bien.ToListBien());
+            //IEnumerable<BienEchangeList> model = this._service.Get().Select(bien => bien.ToLastFiveBien()); //mapper modificato x un altro obj, questo non esiste piu'
 
             //.SelectMany(bien => bien.Pays);
             //_serviceP.Get(bien.Pays).libelle

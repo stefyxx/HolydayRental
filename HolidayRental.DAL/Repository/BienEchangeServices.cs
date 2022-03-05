@@ -222,6 +222,21 @@ namespace HolidayRental.DAL.Repository
                 }
             }
         }
+        public IEnumerable<BienEchange> GetMeilleur15BienV()
+        {
+            using (SqlConnection c = new SqlConnection(_connString))
+            {
+                using (SqlCommand cmd = c.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT [idBien], [titre], [DescCourte], [DescLong], [NombrePerson], [Pays], [Ville], [Rue], [Numero], [CodePostal], [Photo], [AssuranceObligatoire], [isEnabled],[DisabledDate], [Latitude], [Longitude], [idMembre], [DateCreation] FROM [dbo].[Vue_Meilleurs15Avis]";
+
+                    c.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read()) yield return Mapper.ToBienEchange(reader);
+                }
+            }
+        }
 
         public IEnumerable<BienEchange> GetDernier5BienV()
         {
