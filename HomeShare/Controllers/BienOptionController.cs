@@ -16,12 +16,15 @@ namespace HoliDayRental.Controllers
         private readonly IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> _service;
         private readonly IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> _serviceP;
         private readonly IRepoOptionsONEbien<HolidayRental.BLL.Models.OptionsBienWithLabel_forONEBien> _serviceAllOptionsONEbien;
-        public BienOptionController(IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP, IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM, IRepoOptionsONEbien<HolidayRental.BLL.Models.OptionsBienWithLabel_forONEBien> serviceAllOptionsONEbien)
+        private readonly IGetRepository<HolidayRental.BLL.Models.Options> _serviceO;
+
+        public BienOptionController(IAllRepositoryBIEN<HolidayRental.BLL.Models.BienEchange> service, IAllRepositoryBASE<HolidayRental.BLL.Models.Pays> serviceP, IAllRepositoryBASE<HolidayRental.BLL.Models.Membre> serviceM, IRepoOptionsONEbien<HolidayRental.BLL.Models.OptionsBienWithLabel_forONEBien> serviceAllOptionsONEbien, IGetRepository<HolidayRental.BLL.Models.Options> serviceO)
         {
             this._service = service;
             this._serviceM = serviceM;
             this._serviceP = serviceP;
             this._serviceAllOptionsONEbien = serviceAllOptionsONEbien;
+            this._serviceO = serviceO;
 
         }
         // GET: BienOption
@@ -41,10 +44,22 @@ namespace HoliDayRental.Controllers
             return View(model);
         }
 
-        // GET: BienOption/Create
+        // GET: /BienOption/Create
         public ActionResult Create()
         {
-            return View();
+            /*model: recuperare lista Pays
+             *       recuperare Loggin ->idMembre => per ora seleziono io il 'Membre'
+             *       recuperare opzioni possibili   */
+            BienOptionsCreate model = new BienOptionsCreate();
+            model.PaysPossible = _serviceP.Get().Select(p => p.ToPays());
+            model.listaOptions = _serviceO.Get().Select(o => o.ToOption());
+
+            //verrà modofocato LOGGIN -> mi darà idMembre
+            model.listMembre = _serviceM.Get().Select(m => m.ToLabeMembre());
+            model.DateCreation = DateTime.Now;
+            model.isEnabled = true;
+
+            return View(model);
         }
 
         // POST: BienOption/Create
