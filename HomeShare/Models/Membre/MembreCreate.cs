@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace HoliDayRental.Models
 {
@@ -60,8 +58,8 @@ namespace HoliDayRental.Models
 
         public IEnumerable<Pays> Payses { get; set; }
 
-        //[Required]
-        //public bool conditionAccepted { get; set; }
+        [Required]
+        public bool conditionAccepted { get; set; }
 
         [Required]
         public bool isValide { get; set; }

@@ -1,5 +1,6 @@
 ﻿using HoliDayRental.Models;
 using HoliDayRental.Models.BienOptions;
+using HoliDayRental.Models.Membre;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace HoliDayRental.Handlers
 {
     public static class Mapper
     {
+        #region Bien
         public static BienLastFive ToLastFiveBien(this HolidayRental.BLL.Models.BienEchange bien)
         {
             if (bien is null) return null;
@@ -107,16 +109,6 @@ namespace HoliDayRental.Handlers
             };
         }
 
-        public static Pays ToPays(this HolidayRental.BLL.Models.Pays p)
-        {
-            if (p is null) return null;
-            return new Pays
-            {
-                idPays = p.idPays,
-                Libelle = p.Libelle
-            };
-        }
-
         public static BienAvecPAYS ToListBienPAYS(this HolidayRental.BLL.Models.BienAvecNomPAYS bien)
         {
             if (bien is null) return null;
@@ -176,6 +168,29 @@ namespace HoliDayRental.Handlers
             };
         }
 
+        public static BienForMembreList ToBienFORmembre(this HolidayRental.BLL.Models.BienEchange bien)
+        {
+            if (bien is null) return null;
+            return new BienForMembreList
+            {
+                idBien = bien.idBien,
+                titre = bien.titre,
+                DescCourte = bien.DescCourte,
+                DateCreation = bien.DateCreation
+            };
+        }
+
+        #endregion
+        public static Pays ToPays(this HolidayRental.BLL.Models.Pays p)
+        {
+            if (p is null) return null;
+            return new Pays
+            {
+                idPays = p.idPays,
+                Libelle = p.Libelle
+            };
+        }
+
         public static Option ToOption(this HolidayRental.BLL.Models.Options p)
         {
             if (p is null) return null;
@@ -229,6 +244,22 @@ namespace HoliDayRental.Handlers
                 Password =m.Password
             };
         }
+
+        public static MembreEdit ToEditMembre(this HolidayRental.BLL.Models.Membre m)
+        {
+            if (m is null) return null;
+            return new MembreEdit
+            {
+                idMembre = m.idMembre,
+                Nom = m.Nom,
+                Prenom = m.Prenom,
+                Email = m.Email,
+                Telephone = m.Telephone,
+                idPays = m.Pays,
+                Password = m.Password
+            };
+
+            }
         #endregion
     }
 }

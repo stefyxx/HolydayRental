@@ -222,15 +222,12 @@ namespace HoliDayRental.Controllers
 
         public ActionResult Test()
         {
-            IEnumerable<Option> options = _serviceO.Get().Select(o => o.ToOption());
-            testBien bene = new testBien();
-            bene.options = options;
 
-            return View(bene);
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Test(testBien collection)
+        public ActionResult Test(IFormCollection collection)
         {
             try
             {

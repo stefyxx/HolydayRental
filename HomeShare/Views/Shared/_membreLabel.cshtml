@@ -1,0 +1,11 @@
+﻿@model HoliDayRental.Models.MembreNomId;
+
+<aside>
+    <figure>
+        Propriétaire:
+        <figcaption>Nom @Model.Nom
+        <br />
+        Prenom  @Model.Prenom</figcaption>
+        @Html.ActionLink("Modifier", "Edit", new {id= Model.idMembre}, new { @class = "more" })
+    </figure>
+</aside>

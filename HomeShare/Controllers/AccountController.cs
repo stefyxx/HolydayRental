@@ -46,6 +46,7 @@ namespace HoliDayRental.Controllers
         //}
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(MembreCreate collection)
         {
             try
@@ -76,6 +77,27 @@ namespace HoliDayRental.Controllers
                 ViewBag.Error = e.Message;
                 collection.Payses = _serviceP.Get().Select(p => p.ToPays());
                 return View(collection);
+            }
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(IFormCollection collection)
+        {
+            try
+            {
+
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

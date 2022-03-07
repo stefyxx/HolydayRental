@@ -29,5 +29,7 @@ namespace HoliDayRental.Models
         [ScaffoldColumn(false)]
         public Pays Pays { get; set; }
 
+        public bool isValide { get; set; }
+
     }
 }
